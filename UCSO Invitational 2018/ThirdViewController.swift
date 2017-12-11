@@ -24,15 +24,21 @@ class ThirdViewController: UIViewController {
         webview.reload()
     }
     
-    @IBAction func leaveFunc(_ sender: Any) {
-        UIApplication.shared.open(webview.url!)
+    @IBAction func ezraFunc(_ sender: Any) {
+        let url = URL(string: "https://www.ezratech.us/competition/university-of-chicago-science-olympiad-tournament")
+        let request = URLRequest(url: url!)
+        webview.load(request)
     }
     
-    /*
-    @IBAction func leaveFunc(_ sender: Any) {
-        let url = webview.url
-        UIApplication.shared.openURL(url!)
-    } */
+    @IBAction func ucsoFunc(_ sender: Any) {
+        let url = URL(string: "https://www.uchicagoscio.com")
+        let request = URLRequest(url: url!)
+        webview.load(request)
+    }
+    
+    @IBAction func shareFunc(_ sender: Any) {
+        UIApplication.shared.open(webview.url!)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
