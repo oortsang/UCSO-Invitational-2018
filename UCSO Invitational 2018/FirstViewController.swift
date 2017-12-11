@@ -7,12 +7,22 @@
 //
 
 import UIKit
+import MapKit
 
 class FirstViewController: UIViewController {
-
+    @IBOutlet weak var map: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let centerLoc = CLLocationCoordinate2DMake(41.79, -87.6)
+        let mapSpan = MKCoordinateSpanMake(0.01, 0.01)
+        let mapRegion = MKCoordinateRegion(center: centerLoc, span: mapSpan)
+        self.map.setRegion(mapRegion, animated: true)
+        
+        MyList.initiate()
+        for pt in MyList.locPoints {
+            self.map.addAnnotation(pt)
+        }
     }
 
     override func didReceiveMemoryWarning() {
