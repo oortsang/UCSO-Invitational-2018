@@ -16,6 +16,7 @@
 		BA1026DC1FDDFC8D00D16FBD /* UCSO_Invitational_2018Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1026DB1FDDFC8D00D16FBD /* UCSO_Invitational_2018Tests.swift */; };
 		BA1026E71FDDFC8D00D16FBD /* UCSO_Invitational_2018UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1026E61FDDFC8D00D16FBD /* UCSO_Invitational_2018UITests.swift */; };
 		BA1026F51FDDFED000D16FBD /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1026F41FDDFED000D16FBD /* ThirdViewController.swift */; };
+		BA86BB031FF317C30008A5F5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA86BB021FF317C30008A5F5 /* SettingsViewController.swift */; };
 		BAB5E4311FDE2A420017EC6D /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB5E4301FDE2A420017EC6D /* Locations.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		BA1026E61FDDFC8D00D16FBD /* UCSO_Invitational_2018UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UCSO_Invitational_2018UITests.swift; sourceTree = "<group>"; };
 		BA1026E81FDDFC8D00D16FBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA1026F41FDDFED000D16FBD /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		BA86BB021FF317C30008A5F5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		BAB5E4301FDE2A420017EC6D /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +108,7 @@
 				BA1026C41FDDFC8D00D16FBD /* AppDelegate.swift */,
 				BA1026C61FDDFC8D00D16FBD /* FirstViewController.swift */,
 				BA1026C81FDDFC8D00D16FBD /* SecondViewController.swift */,
+				BA86BB021FF317C30008A5F5 /* SettingsViewController.swift */,
 				BAB5E4301FDE2A420017EC6D /* Locations.swift */,
 				BA1026F41FDDFED000D16FBD /* ThirdViewController.swift */,
 				BA1026CA1FDDFC8D00D16FBD /* Main.storyboard */,
@@ -268,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA86BB031FF317C30008A5F5 /* SettingsViewController.swift in Sources */,
 				BA1026C91FDDFC8D00D16FBD /* SecondViewController.swift in Sources */,
 				BA1026C51FDDFC8D00D16FBD /* AppDelegate.swift in Sources */,
 				BA1026F51FDDFED000D16FBD /* ThirdViewController.swift in Sources */,
