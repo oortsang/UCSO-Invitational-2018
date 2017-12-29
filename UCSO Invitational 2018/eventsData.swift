@@ -13,10 +13,9 @@ let appDelegate = UIApplication.shared.delegate as! AppDelegate
 let context = appDelegate.persistentContainer.viewContext
 let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Events")
 
-class eventsData: NSObject {
-    static var list = ["Time", "Cell Bio"]
-    //static var list:[String] = []
-    static let completeList = ["Anatomy & Physiology", "Astronomy", "Chemistry Lab", "Disease Detectives", "Dynamic Planet", "Ecology", "Experimental Design", "Fermi Questions", "Forensics", "Game On", "Helicopters", "Herpetology", "Hovercraft", "MaterialsScience", "Microbe Mission", "Mission Possible", "Mousetrap Vehicle", "Optics", "Remote Sensing", "Rocks & Minerals", "Thermodynamics", "Towers", "Write It Do It"]
+class EventsData: NSObject {
+    static var list:[String] = []
+    static let completeList = ["Anatomy & Physiology", "Astronomy", "Chemistry Lab", "Disease Detectives", "Dynamic Planet", "Ecology", "Experimental Design", "Fermi Questions", "Forensics", "Game On", "Helicopters", "Herpetology", "Hovercraft", "Materials Science", "Microbe Mission", "Mission Possible", "Mousetrap Vehicle", "Optics", "Remote Sensing", "Rocks & Minerals", "Thermodynamics", "Towers", "Write It Do It"]
 }
 
 //fetches events from CoreData
@@ -31,7 +30,7 @@ func loadEvents() -> Void {
                     tmpRes.append(eventName)
                 }
             }
-            eventsData.list = tmpRes
+            EventsData.list = tmpRes
         }
     }
     catch {
@@ -41,7 +40,7 @@ func loadEvents() -> Void {
 
 //Dumps everything to storage
 func firstSaveEvents() -> Void {
-    for eachEvent in eventsData.list {
+    for eachEvent in EventsData.list {
         addEvent(eventName: eachEvent)
     }
 }
@@ -49,7 +48,7 @@ func firstSaveEvents() -> Void {
 //Save the event list in storage
 func saveEvents() -> Void {
     clearEvents() //for convenience
-    for eachEvent in eventsData.list {
+    for eachEvent in EventsData.list {
         addEvent(eventName: eachEvent)
     }
 }
@@ -70,14 +69,14 @@ func addEvent(eventName: String) -> Void {
 
 //removes the first occurrence of an event
 func removeEvent(eventName: String, indexPath: IndexPath) -> Bool {
-    eventsData.list.remove(at: indexPath.row)
+    EventsData.list.remove(at: indexPath.row)
     request.predicate = NSPredicate(format: "event = %@", eventName) //??
     var res : Bool = false
     do {
         let results = try context.fetch(request) as? [NSManagedObject]
         if results!.count > 0 {
             let object = results!.first
-            print("Removed \(String(describing: object))")
+            //print("Removed \(String(describing: object))")
             context.delete(object!)
             res = true
         }

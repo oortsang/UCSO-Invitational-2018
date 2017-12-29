@@ -11,16 +11,30 @@ import CoreData
 
 class TableViewController: UITableViewController {
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.rightBarButtonItem = self.editButtonItem
-        print(eventsData.list)
+         NotificationCenter.default.addObserver(self, selector: #selector(reloadTableData), name: .reload, object: nil)
+        let edit = self.editButtonItem
+        let space = UIBarButtonItem(title: "    ", style: .plain, target: self, action: nil)
+        let clear = UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(clearAll))
+        self.navigationItem.rightBarButtonItems = [edit, space, clear]
+        self.navigationItem.title = "Settings"
+        //print(EventsData.list)
         loadEvents()
-        //saveEvents()
-        print(eventsData.list)
+        cleanDuplicates()
     }
-
+    
+    @objc func reloadTableData() -> Void {
+        tableView.reloadData()
+    }
+    
+    //procedure for clearing everything
+    @objc func clearAll() {
+        EventsData.list = []
+        clearEvents()
+        tableView.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -35,25 +49,21 @@ class TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return eventsData.list.count
+        return EventsData.list.count
     }
 
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-        cell.textLabel!.text = eventsData.list[indexPath.row]
+        cell.textLabel!.text = EventsData.list[indexPath.row]
         return cell
     }
-    
-
     
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    
-
     
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -67,6 +77,7 @@ class TableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+            
         }    
     }
     
@@ -74,12 +85,11 @@ class TableViewController: UITableViewController {
     
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-        let eventA = eventsData.list[fromIndexPath.row]
-        eventsData.list.remove(at: fromIndexPath.row)
-        eventsData.list.insert(eventA, at: to.row)
+        let eventA = EventsData.list[fromIndexPath.row]
+        EventsData.list.remove(at: fromIndexPath.row)
+        EventsData.list.insert(eventA, at: to.row)
+        saveEvents() //preserve order
     }
-    
-
     
     // Override to support conditional rearranging of the table view.
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
@@ -87,10 +97,19 @@ class TableViewController: UITableViewController {
         return true
     }
  
-
+    //get rid of duplicate entries
+    func cleanDuplicates() {
+        var tmp: [String] = [] //will store the new string
+        for ev in EventsData.list {
+            if !tmp.contains(ev) {
+                tmp.append(ev)
+            }
+        }
+        EventsData.list = tmp
+        saveEvents()
+    }
     
-    // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.

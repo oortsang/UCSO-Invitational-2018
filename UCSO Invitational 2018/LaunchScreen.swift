@@ -12,8 +12,6 @@ class LaunchScreen: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        firstSaveEvents() //REMOVE THIS
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
