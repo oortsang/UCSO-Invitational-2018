@@ -16,7 +16,11 @@
 		BA1026DC1FDDFC8D00D16FBD /* UCSO_Invitational_2018Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1026DB1FDDFC8D00D16FBD /* UCSO_Invitational_2018Tests.swift */; };
 		BA1026E71FDDFC8D00D16FBD /* UCSO_Invitational_2018UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1026E61FDDFC8D00D16FBD /* UCSO_Invitational_2018UITests.swift */; };
 		BA1026F51FDDFED000D16FBD /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1026F41FDDFED000D16FBD /* ThirdViewController.swift */; };
-		BA86BB031FF317C30008A5F5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA86BB021FF317C30008A5F5 /* SettingsViewController.swift */; };
+		BA1567631FF5DEBE00A49D65 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1567621FF5DEBE00A49D65 /* LaunchScreen.swift */; };
+		BA3765831FF5C39C008C4A63 /* DataStorage.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = BA3765821FF5C39C008C4A63 /* DataStorage.xcdatamodel */; };
+		BA8AD9A61FF570EC008BA972 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8AD9A51FF570EC008BA972 /* TableViewController.swift */; };
+		BA8AD9A81FF5B576008BA972 /* eventsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8AD9A71FF5B576008BA972 /* eventsData.swift */; };
+		BA8AD9CF1FF5BA03008BA972 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA8AD9CE1FF5BA03008BA972 /* CoreData.framework */; };
 		BAB5E4311FDE2A420017EC6D /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB5E4301FDE2A420017EC6D /* Locations.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,7 +57,11 @@
 		BA1026E61FDDFC8D00D16FBD /* UCSO_Invitational_2018UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UCSO_Invitational_2018UITests.swift; sourceTree = "<group>"; };
 		BA1026E81FDDFC8D00D16FBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA1026F41FDDFED000D16FBD /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
-		BA86BB021FF317C30008A5F5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		BA1567621FF5DEBE00A49D65 /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
+		BA3765821FF5C39C008C4A63 /* DataStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = DataStorage.xcdatamodel; path = UCSO_Invitational_2018.xcdatamodeld/DataStorage.xcdatamodel; sourceTree = "<group>"; };
+		BA8AD9A51FF570EC008BA972 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		BA8AD9A71FF5B576008BA972 /* eventsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventsData.swift; sourceTree = "<group>"; };
+		BA8AD9CE1FF5BA03008BA972 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		BAB5E4301FDE2A420017EC6D /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA8AD9CF1FF5BA03008BA972 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +98,7 @@
 				BA1026DA1FDDFC8D00D16FBD /* UCSO Invitational 2018Tests */,
 				BA1026E51FDDFC8D00D16FBD /* UCSO Invitational 2018UITests */,
 				BA1026C21FDDFC8D00D16FBD /* Products */,
+				BA8AD9CD1FF5BA03008BA972 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,12 +118,15 @@
 				BA1026C41FDDFC8D00D16FBD /* AppDelegate.swift */,
 				BA1026C61FDDFC8D00D16FBD /* FirstViewController.swift */,
 				BA1026C81FDDFC8D00D16FBD /* SecondViewController.swift */,
-				BA86BB021FF317C30008A5F5 /* SettingsViewController.swift */,
 				BAB5E4301FDE2A420017EC6D /* Locations.swift */,
 				BA1026F41FDDFED000D16FBD /* ThirdViewController.swift */,
+				BA8AD9A51FF570EC008BA972 /* TableViewController.swift */,
+				BA8AD9A71FF5B576008BA972 /* eventsData.swift */,
 				BA1026CA1FDDFC8D00D16FBD /* Main.storyboard */,
+				BA3765821FF5C39C008C4A63 /* DataStorage.xcdatamodel */,
 				BA1026CD1FDDFC8D00D16FBD /* Assets.xcassets */,
 				BA1026CF1FDDFC8D00D16FBD /* LaunchScreen.storyboard */,
+				BA1567621FF5DEBE00A49D65 /* LaunchScreen.swift */,
 				BA1026D21FDDFC8D00D16FBD /* Info.plist */,
 			);
 			path = "UCSO Invitational 2018";
@@ -135,6 +148,14 @@
 				BA1026E81FDDFC8D00D16FBD /* Info.plist */,
 			);
 			path = "UCSO Invitational 2018UITests";
+			sourceTree = "<group>";
+		};
+		BA8AD9CD1FF5BA03008BA972 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BA8AD9CE1FF5BA03008BA972 /* CoreData.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,12 +292,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA86BB031FF317C30008A5F5 /* SettingsViewController.swift in Sources */,
+				BA8AD9A61FF570EC008BA972 /* TableViewController.swift in Sources */,
 				BA1026C91FDDFC8D00D16FBD /* SecondViewController.swift in Sources */,
+				BA1567631FF5DEBE00A49D65 /* LaunchScreen.swift in Sources */,
 				BA1026C51FDDFC8D00D16FBD /* AppDelegate.swift in Sources */,
 				BA1026F51FDDFED000D16FBD /* ThirdViewController.swift in Sources */,
 				BAB5E4311FDE2A420017EC6D /* Locations.swift in Sources */,
 				BA1026C71FDDFC8D00D16FBD /* FirstViewController.swift in Sources */,
+				BA8AD9A81FF5B576008BA972 /* eventsData.swift in Sources */,
+				BA3765831FF5C39C008C4A63 /* DataStorage.xcdatamodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
