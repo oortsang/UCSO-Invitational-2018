@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 extension Notification.Name {
     static let reloadSchoolName = Notification.Name("reloadSchool")
@@ -50,3 +51,54 @@ class ModalSchoolPicker: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
 }
 
+
+let teamAppDelegate = UIApplication.shared.delegate as! AppDelegate
+let teamContext = teamAppDelegate.persistentContainer.viewContext
+let teamRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Teams")
+
+//write current school to disk
+func saveSchoolName(teamName: String) -> Void {
+    clearSchools()
+    let newTeam = NSEntityDescription.insertNewObject(forEntityName: "Teams", into: teamContext)
+    newTeam.setValue (teamName, forKey: "name")
+    do {
+        try context.save()
+    }
+    catch {
+        print("Something went wrong with adding a team")
+    }
+}
+
+//clear team names from disk
+func clearSchools() -> Void {
+    do {
+        let results = try teamContext.fetch(teamRequest) as? [NSManagedObject]
+        if results!.count > 0 {
+            //delete all results
+            for object in results! {
+                print("Removed \(object)")
+                teamContext.delete(object)
+            }
+        }
+    } catch {
+        print("Something went wrong clearing out all the teams from disk")
+    }
+}
+
+//load school from disk
+func loadSchoolName() -> Void {
+    teamRequest.returnsObjectsAsFaults = false
+    do {
+        let results = try teamContext.fetch(teamRequest)
+        if results.count > 0 {
+            let result = results.first
+            if let schoolName = (result as AnyObject).value(forKey:"name") as? String {
+                EventsData.currentSchool = schoolName
+                print("Loaded team: \(schoolName)")
+            }
+        }
+    }
+    catch {
+        print("Something went wrong loading the school from disk...")
+    }
+}

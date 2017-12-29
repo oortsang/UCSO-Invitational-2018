@@ -98,6 +98,7 @@ class TableViewController: UITableViewController {
     }
  
     //get rid of duplicate entries
+    //also saves to disk
     func cleanDuplicates() {
         var tmp: [String] = [] //will store the new string
         for ev in EventsData.list {
