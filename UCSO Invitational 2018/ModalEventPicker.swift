@@ -14,19 +14,14 @@ extension Notification.Name {
 
 class ModalEventPicker: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    
-    //var dataSource : UIPickerViewDataSource = EventsData.completeList as! UIPickerViewDataSource
     @IBOutlet weak var eventPicker: UIPickerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         eventPicker.dataSource = self
         eventPicker.delegate = self
-        
     }
 
-    
-    
     func numberOfComponents(in eventPicker: UIPickerView) -> Int {
         return 1
     }

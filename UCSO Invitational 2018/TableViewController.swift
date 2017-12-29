@@ -18,7 +18,7 @@ class TableViewController: UITableViewController {
         let space = UIBarButtonItem(title: "    ", style: .plain, target: self, action: nil)
         let clear = UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(clearAll))
         self.navigationItem.rightBarButtonItems = [edit, space, clear]
-        self.navigationItem.title = "Settings"
+        self.navigationItem.title = "Choose Events"
         //print(EventsData.list)
         loadEvents()
         cleanDuplicates()

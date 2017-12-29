@@ -9,12 +9,20 @@
 import UIKit
 
 class SecondViewController: UIViewController {
-
+    @IBOutlet weak var schoolTitle: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        updateSchoolTitleText()
+         NotificationCenter.default.addObserver(self, selector: #selector(updateSchoolTitleText), name: .reloadSchoolName, object: nil)
     }
-
+    //update the text to reflect current team set
+    @objc func updateSchoolTitleText() {
+        let sName = EventsData.currentSchool
+        let sNumber = 1 + EventsData.roster.index(of: sName)!
+        schoolTitle.text = "Viewing as: (\(sNumber)) \(sName)"
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
