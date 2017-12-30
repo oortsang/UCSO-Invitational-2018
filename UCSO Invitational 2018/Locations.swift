@@ -19,7 +19,12 @@ let locList: [(String, String, Double, Double)]
         ("Lab Schools", "UC Lab Schools", 41.7880278, -87.5939404),
         ("Mandel/Reynolds", "Mandel Hall / Reynolds Club", 41.791237, -87.5982604),
         ("KPTC", "Kersten Physics Teaching Center", 41.7910491, -87.6014493),
-        ("GCIS", "Gorden Center for Integrative Sciences / James Franck Institute", 41.7911308,-87.6027497)
+        ("GCIS", "Gorden Center for Integrative Sciences / James Franck Institute", 41.7911308,-87.6027497),
+        ("Stuart", "Stuart Hall", 41.788608, -87.598713),
+        ("Kent", "Kent Laboratory", 41.790188, -87.600143),
+        ("ERC", "Eckhardt Research Center", 41.791906,-87.601552),
+        ("Cobb", "Cobb Lecture Hall", 41.788996, -87.600854),
+        ("Reg", "The Joseph Regenstein Library", 41.792279, -87.599954)
     ]
 
 struct MyList {
@@ -35,6 +40,3 @@ struct MyList {
         }
     }
 }
-
-    
-

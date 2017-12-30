@@ -9,6 +9,7 @@
     </entity>
     <entity name="Schedule" representedClassName="Schedule" syncable="YES" codeGenerationType="class">
         <attribute name="scheduledEventName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="scheduledEventPlace" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="scheduledEventTime" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Teams" representedClassName="Teams" syncable="YES" codeGenerationType="class">
@@ -17,7 +18,7 @@
     <elements>
         <element name="EventInfo" positionX="-63" positionY="0" width="128" height="75"/>
         <element name="Events" positionX="-63" positionY="-18" width="128" height="60"/>
-        <element name="Schedule" positionX="-54" positionY="9" width="128" height="75"/>
+        <element name="Schedule" positionX="-54" positionY="9" width="128" height="90"/>
         <element name="Teams" positionX="-54" positionY="9" width="128" height="60"/>
     </elements>
 </model>

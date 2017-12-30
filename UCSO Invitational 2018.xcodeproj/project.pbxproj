@@ -23,6 +23,7 @@
 		BA8AD9A61FF570EC008BA972 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8AD9A51FF570EC008BA972 /* TableViewController.swift */; };
 		BA8AD9A81FF5B576008BA972 /* eventsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8AD9A71FF5B576008BA972 /* eventsData.swift */; };
 		BA8AD9CF1FF5BA03008BA972 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA8AD9CE1FF5BA03008BA972 /* CoreData.framework */; };
+		BAB4E98F1FF6C57000CC791C /* ScheduleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB4E98E1FF6C57000CC791C /* ScheduleData.swift */; };
 		BAB5E4311FDE2A420017EC6D /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB5E4301FDE2A420017EC6D /* Locations.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		BA8AD9A51FF570EC008BA972 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		BA8AD9A71FF5B576008BA972 /* eventsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventsData.swift; sourceTree = "<group>"; };
 		BA8AD9CE1FF5BA03008BA972 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		BAB4E98E1FF6C57000CC791C /* ScheduleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleData.swift; sourceTree = "<group>"; };
 		BAB5E4301FDE2A420017EC6D /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,6 +129,7 @@
 				BA8AD9A71FF5B576008BA972 /* eventsData.swift */,
 				BA1567641FF5F6CF00A49D65 /* ModalEventPicker.swift */,
 				BA1567661FF6237200A49D65 /* ModalSchoolPicker.swift */,
+				BAB4E98E1FF6C57000CC791C /* ScheduleData.swift */,
 				BA1026F41FDDFED000D16FBD /* ThirdViewController.swift */,
 				BA1026CA1FDDFC8D00D16FBD /* Main.storyboard */,
 				BA3765821FF5C39C008C4A63 /* DataStorage.xcdatamodel */,
@@ -302,6 +305,7 @@
 				BA1026C91FDDFC8D00D16FBD /* SecondViewController.swift in Sources */,
 				BA1567651FF5F6CF00A49D65 /* ModalEventPicker.swift in Sources */,
 				BA1567631FF5DEBE00A49D65 /* LaunchScreen.swift in Sources */,
+				BAB4E98F1FF6C57000CC791C /* ScheduleData.swift in Sources */,
 				BA1026C51FDDFC8D00D16FBD /* AppDelegate.swift in Sources */,
 				BA1567671FF6237200A49D65 /* ModalSchoolPicker.swift in Sources */,
 				BA1026F51FDDFED000D16FBD /* ThirdViewController.swift in Sources */,
