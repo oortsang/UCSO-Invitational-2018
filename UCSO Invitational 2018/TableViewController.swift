@@ -14,7 +14,7 @@ class TableViewController: UITableViewController {
         super.viewDidLoad()
          NotificationCenter.default.addObserver(self, selector: #selector(reloadTableData), name: .reload, object: nil)
         let edit = self.editButtonItem
-        let space = UIBarButtonItem(title: "    ", style: .plain, target: self, action: nil)
+        let space = UIBarButtonItem(title: "  ", style: .plain, target: self, action: nil)
         let clear = UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(clearAll))
         self.navigationItem.rightBarButtonItems = [edit, space, clear]
         self.navigationItem.title = "Choose Events"
@@ -33,6 +33,7 @@ class TableViewController: UITableViewController {
         EventsData.list = []
         clearEvents()
         tableView.reloadData()
+        NotificationCenter.default.post(name: .reloadSchoolName, object: nil)
     }
     
     override func didReceiveMemoryWarning() {

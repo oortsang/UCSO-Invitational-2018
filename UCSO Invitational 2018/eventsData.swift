@@ -22,6 +22,9 @@ class EventsData: NSObject {
     static func teamNumber() -> Int! {
         return 1+roster.index(of: EventsData.currentSchool)!
     }
+    static func isSelfScheduled(evnt: String) -> Bool! {
+        return EventsData.selfScheduled.contains(evnt)
+    }
 }
 
 func hasHovercraft() -> Bool {
