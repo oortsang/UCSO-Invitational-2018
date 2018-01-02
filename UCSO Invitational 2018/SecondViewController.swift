@@ -12,13 +12,34 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var schoolTitle: UITextField!
     @IBOutlet weak var homeroomLocation: UITextField!
     
+
+    
     override func viewDidLoad() {
         loadEvents()
         super.viewDidLoad()
         loadSchoolTitleText()
          NotificationCenter.default.addObserver(self, selector: #selector(updateSchoolTitleText), name: .reloadSchoolName, object: nil)
-        print("Hello there")
+        //allow detail by tapping on a cell
+        /*let recognizer = UITapGestureRecognizer(target: self, action: #selector(onTap))
+        recognizer.delegate = self as? UIGestureRecognizerDelegate
+        tableView.addGestureRecognizer(recognizer)*/
     }
+    /*
+    @objc func onTap(recognizer : UITapGestureRecognizer) {
+        if recognizer.state == .began {
+            let touchPoint = recognizer.location(in: self.view)
+            if let indexPath = tableView.indexPathForRow(at: touchPoint) {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "schedule", for: indexPath)
+                let alert = UIAlertController(title: "Event", message: cell.textLabel!.text,  preferredStyle: .alert)
+                alert.addAction(
+                    UIAlertAction(title:
+                        NSLocalizedString("Ok", comment: "Default action"),
+                                  style: .default)
+                )
+            }
+        }
+    }*/
+    
     //update load team name from file
     @objc func loadSchoolTitleText() {
         loadSchoolName()

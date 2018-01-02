@@ -10,6 +10,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Item-->
+        <scene sceneID="Dmy-Fe-XUT">
+            <objects>
+                <viewController id="ytu-Ix-eQa" customClass="dummyViewController" customModule="UCSO_Invitational_2018" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tNS-jq-NI5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="r0w-lR-UKS"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="Uvz-kv-UJ8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DS4-BK-YM5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="99" y="-729"/>
+        </scene>
         <!--Map-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
@@ -18,12 +34,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Asg-x7-db9">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Asg-x7-db9">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Asg-x7-db9" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" id="FKC-b0-OYe"/>
+                            <constraint firstItem="Asg-x7-db9" firstAttribute="bottom" secondItem="PQr-Ze-W5v" secondAttribute="bottom" id="TPp-3C-cdI"/>
+                            <constraint firstAttribute="trailing" secondItem="Asg-x7-db9" secondAttribute="trailing" id="wwd-dU-kBE"/>
+                            <constraint firstItem="Asg-x7-db9" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="z9j-qR-uky"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="Map icon" id="acW-dT-cKf"/>
@@ -151,6 +172,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <gestureRecognizers/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -321,6 +343,7 @@
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="9E4-I5-yTc" kind="relationship" relationship="viewControllers" id="PA6-6f-zUU"/>
                         <segue destination="stn-fe-INF" kind="relationship" relationship="viewControllers" id="lpX-9q-f7Z"/>
+                        <segue destination="ytu-Ix-eQa" kind="relationship" relationship="viewControllers" id="mGA-br-ETe"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>

@@ -62,7 +62,7 @@ func saveSchoolName(teamName: String) -> Void {
     let newTeam = NSEntityDescription.insertNewObject(forEntityName: "Teams", into: teamContext)
     newTeam.setValue (teamName, forKey: "name")
     do {
-        try context.save()
+        try teamContext.save()
     }
     catch {
         print("Something went wrong with adding a team")

@@ -78,6 +78,7 @@ func addEvent(eventName: String) -> Void {
 //removes the first occurrence of an event
 func removeEvent(eventName: String, indexPath: IndexPath) -> Bool {
     EventsData.list.remove(at: indexPath.row)
+    let tmp = request.predicate
     request.predicate = NSPredicate(format: "event = %@", eventName) //??
     var res : Bool = false
     do {
@@ -91,6 +92,7 @@ func removeEvent(eventName: String, indexPath: IndexPath) -> Bool {
     } catch {
         print("Something went wrong deleting the event \(eventName)")
     }
+    request.predicate = tmp //undo what just happened
     return res
 }
 //remove all events
