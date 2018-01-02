@@ -12,13 +12,20 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var schoolTitle: UITextField!
     @IBOutlet weak var homeroomLocation: UITextField!
     
-
+    var homeroomFile = CSVFile()
     
     override func viewDidLoad() {
         loadEvents()
         super.viewDidLoad()
+        //load homeroom info
+        homeroomFile.load(fileName: "homerooms") //what happens if it's not there to begin with?
+        print(homeroomFile.file)
+        //homeroomFile.downloadFile(sourceURL: CSVFile.homeroomAddress)
+        homeroomFile.save(name: "homerooms")
+        
         loadSchoolTitleText()
          NotificationCenter.default.addObserver(self, selector: #selector(updateSchoolTitleText), name: .reloadSchoolName, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onDownloadSummoned), name: .downloadFinished, object: nil)
         //allow detail by tapping on a cell
         /*let recognizer = UITapGestureRecognizer(target: self, action: #selector(onTap))
         recognizer.delegate = self as? UIGestureRecognizerDelegate
@@ -40,6 +47,10 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }*/
     
+    @objc func onDownloadSummoned () {
+        //for homeroom stuff
+        ScheduleData.updateHomerooms(dataFile: homeroomFile)
+    }
     //update load team name from file
     @objc func loadSchoolTitleText() {
         loadSchoolName()
@@ -54,13 +65,13 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     //update the text to reflect current team set
     @objc func updateSchoolTitleText() {
         let sName = EventsData.currentSchool
-        let sNumber = 1 + EventsData.roster.index(of: sName)!
-        //UPDATE THIS ONCE THE HOMEROOM LIST IS IN
-      //ScheduleData.homeroom = ScheduleData.homeroomList[sNumber-1]
+        let sNumber = EventsData.teamNumber()!
+        if homeroomFile.data.count > 1 {
+            ScheduleData.updateHomerooms(dataFile: homeroomFile)
+        }
         schoolTitle.text = "Viewing as: (\(sNumber)) \(sName)"
         homeroomLocation.text = "Homeroom: \(ScheduleData.homeroom)"
         saveSchoolName(teamName: sName)
-        print(sName)
     }
 
     /*

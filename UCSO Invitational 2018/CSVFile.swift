@@ -9,6 +9,23 @@
 import Foundation
 import CoreData
 
+//notify others for when download is finished
+extension Notification.Name {
+    static let downloadFinished = Notification.Name("downloadFinished")
+}
+
+func getCol(array: [[Any]], col: Int) -> [Any]? {
+    var tmp: [Any] = []
+    do {
+        for row in array {
+            tmp.append(row[col])
+        }
+    } catch {
+        return nil
+    }
+    return tmp
+}
+
 
 class CSVFile {
     static let baseFileFolder = "https://rawgit.com/oortsang/UCSO-Invitational-2018/master/Updatable%20Files/"
@@ -16,7 +33,7 @@ class CSVFile {
     static let testEventAddress = baseFileFolder + "TestEvents.csv"
     static let homeroomAddress = baseFileFolder + "Homerooms.csv"
 
-    var data: [[String]] = [[""]]
+    var data: [[String]] = [[]]
     var file: String = ""
     
     //initializers
@@ -30,29 +47,35 @@ class CSVFile {
     
     //takes the text info from a CSV and turns it into a 2D array
     //2D array gets dumped into the class
-    func readCSV(fileContents: String) {
-        let rows: [String] = fileContents.components(separatedBy: "\n")
+    func parse() {
+        let rows: [String] = file.components(separatedBy: "\r\n")
         if rows.count > 0 {
             var data: [[String]] = []
-            for (i, row) in rows.enumerated() {
-                data[i] = row.components(separatedBy: ",")
+            //for (i, row) in rows.enumerated() {
+            for row in rows {
+                let content = row.components(separatedBy: ",")
+                if content != [""] {
+                    data.append(content)
+                }
             }
             self.data = data
-        } else {
-            return
-        }
+        } //otherwise, leave it the same
+        //print(self.data)
     }
     
     //appDelegate is defined elsewhere
     static let fileContext = appDelegate.persistentContainer.viewContext
     static let fileRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Files")
+    
     //storing these csv guys
     //tell it what name to save under
     func save(name: String) {
-        self.clear(name: name)
+        self.clear(fileName: name)
         let newFile = NSEntityDescription.insertNewObject(forEntityName: "Files", into: CSVFile.fileContext)
-        newFile.setValue (name, forKey: "file")
+        newFile.setValue (name, forKey: "fileName")
+        newFile.setValue(self.file, forKey: "data")
         do {
+            print("HOORAY! self.file:  \(self.file)")
             try CSVFile.fileContext.save()
         }
         catch {
@@ -63,14 +86,16 @@ class CSVFile {
     func load(fileName: String) {
         CSVFile.fileRequest.returnsObjectsAsFaults = false
         let tmp = CSVFile.fileRequest.predicate
-        CSVFile.fileRequest.predicate = NSPredicate(format: "file = %@", fileName)
+        CSVFile.fileRequest.predicate = NSPredicate(format: "fileName = %@", fileName)
         do {
             let results = try CSVFile.fileContext.fetch(CSVFile.fileRequest)
+            print("I have this many results: ",results.count)
             if results.count > 0 {
                 let result = results.first
-                if let loadedData = (result as AnyObject).value(forKey:"file") as? String {
-                    self.file = loadedData
+                if let loadedData = (result as! NSManagedObject).value(forKey:"data") {
+                    self.file = loadedData as! String
                     print("Loaded file: \(self.file)")
+                    self.parse()
                 }
             }
         }
@@ -80,22 +105,23 @@ class CSVFile {
         CSVFile.fileRequest.predicate = tmp
     }
     //deletes every result when searching <name> in the fileRequest
-    func clear(name: String) {
+    func clear(fileName: String) {
         CSVFile.fileRequest.returnsObjectsAsFaults = false
-        let tmp = CSVFile.fileRequest.predicate
         do {
             let results = try CSVFile.fileContext.fetch(CSVFile.fileRequest) as? [NSManagedObject]
             if results!.count > 0 {
-                //delete all results
-                for object in results! {
-                    print("Removed \(object)")
-                    CSVFile.fileContext.delete(object)
+                
+                for object in results as! [NSManagedObject] {
+                    //if object.value(forKey: "fileName") as! String == fileName {
+                    if let file = object.value(forKey: "fileName") as? String {
+                        print(file)
+                        CSVFile.fileContext.delete(object)
+                    }
                 }
             }
         } catch {
             print("Something went wrong clearing out all the teams from disk")
         }
-        CSVFile.fileRequest.predicate = tmp
     }
     
     //clear all files from disk
@@ -119,7 +145,7 @@ class CSVFile {
         let url = URL(string: sourceURL)
         let task = URLSession.shared.downloadTask(with: url!) { loc, resp, error in
             if let error = error {
-                print("Error: \(error)")
+                print("Error: \(error); not updated")
                 return
             }
             guard let httpResponse = resp as? HTTPURLResponse,
@@ -128,8 +154,13 @@ class CSVFile {
             }
             guard let data = try? Data(contentsOf: loc!) , error == nil else {return}
             self.file = (String(data: data, encoding: .utf8))!
-            print(self.file)
+            print("This is such a cool file! \(self.file)")
+            self.parse()
+            self.sendDownloadNotification()
         }
         task.resume()
+    }
+    func sendDownloadNotification() -> Void {
+        NotificationCenter.default.post(name: .downloadFinished, object: nil)
     }
 }

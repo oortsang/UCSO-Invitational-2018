@@ -4,14 +4,15 @@
         <attribute name="event" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Files" representedClassName="Files" syncable="YES" codeGenerationType="class">
-        <attribute name="file" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="data" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fileName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Teams" representedClassName="Teams" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Files" positionX="-54" positionY="0" width="128" height="60"/>
         <element name="Events" positionX="-63" positionY="-18" width="128" height="60"/>
+        <element name="Files" positionX="-54" positionY="0" width="128" height="75"/>
         <element name="Teams" positionX="-54" positionY="9" width="128" height="60"/>
     </elements>
 </model>

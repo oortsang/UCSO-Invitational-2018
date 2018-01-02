@@ -86,4 +86,15 @@ class ScheduleData {
     static func eventLoc (teamName: String) -> String! {
         return "(location of event)" //ALSO CHANGE THIS
     }
+    static func updateHomerooms(dataFile: CSVFile) {
+        do {
+            print(EventsData.currentSchool, "!!!")
+            ScheduleData.homeroomList = getCol(array: dataFile.data, col: 1) as! [String]
+            ScheduleData.homeroom = ScheduleData.homeroomList[EventsData.teamNumber()]
+            dataFile.save(name: "homerooms")
+        } catch {
+            return
+        }
+    }
+    
 }

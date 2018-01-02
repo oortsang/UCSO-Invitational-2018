@@ -19,6 +19,9 @@ class EventsData: NSObject {
     static let selfScheduled = ["Helicopters", "Hovercraft", "Mission Possible", "Mousetrap Vehicle", "Towers"]
     static var currentSchool = "Sylvania Southview High School - Team A"
     static let roster = ["Sylvania Southview High School - Team A", "Sylvania Southview High School - Team B", "Sylvania Northview - Team A", "Carmel High School - Team A", "Carmel High School - Team B", "St. Ignatius High School - Team A", "St. Ignatius High School - Team B", "Glenbrook South High School - Team A", "Glenbrook South High School - Team B", "Glenbard West High School - Team A", "Glenbard West High School - Team B", "Crystal Lake Central High School - Team A", "Crystal Lake Central High School - Team B", "Joliet West High School - Team B", "Joliet West High School - Team A", "Ladue Horton Watkins High school - Team A", "Waubonsie Valley High School - Team A", "Waubonsie Valley High School - Team B", "Evergreen Park Community High School - Team A", "Adlai E. Stevenson High School - Team A", "Adlai E. Stevenson High School - Team B", "Alcott College Prep - Team A", "Alcott College Prep - Team B", "University of Chicago Laboratory Schools - Team A", "University of Chicago Laboratory Schools - Team B", "Ogden International - Team A", "Lyons Township High - Team A", "Lyons Township High - Team B", "Jones College Prep - Team A", "John Hersey High School - Team A", "Walter Payton College Prep - Team A", "Walter Payton College Prep - Team B", "Northside College Prep - Team A", "Northside College Prep - Team B", "OPRF - Team A", "OPRF - Team B", "John Hancock College Prep HS - Team A", "British International School of Chicago, South Loop - Team A", "Saint Ignatius College prep - Team A", "Saint Ignatius College prep - Team B"]
+    static func teamNumber() -> Int! {
+        return 1+roster.index(of: EventsData.currentSchool)!
+    }
 }
 
 func hasHovercraft() -> Bool {
