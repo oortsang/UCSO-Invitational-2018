@@ -13,10 +13,8 @@ class dummyViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let dlGuy = Download()
-        dlGuy.downloadFile(sourceURL: Download.homeroomAddress)
-        print("^ that was inside the build event file")
-        // Do any additional setup after loading the view.
+
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -25,9 +25,8 @@
 		BAC890411FFAEE8B004B05CC /* ScheduleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC8903E1FFAEE8B004B05CC /* ScheduleData.swift */; };
 		BAC890421FFAEE8B004B05CC /* eventsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC8903F1FFAEE8B004B05CC /* eventsData.swift */; };
 		BAC890431FFAEE8B004B05CC /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC890401FFAEE8B004B05CC /* Locations.swift */; };
-		BAC8904C1FFB079D004B05CC /* CSVtoArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC8904B1FFB079D004B05CC /* CSVtoArray.swift */; };
+		BAC8904C1FFB079D004B05CC /* CSVFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC8904B1FFB079D004B05CC /* CSVFile.swift */; };
 		BAC8904E1FFB10B4004B05CC /* Updatable Files in Resources */ = {isa = PBXBuildFile; fileRef = BAC8904D1FFB10B4004B05CC /* Updatable Files */; };
-		BAD2C95F1FFB17DF00A201C1 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD2C95E1FFB17DF00A201C1 /* Download.swift */; };
 		BAD2C9611FFB47A200A201C1 /* dummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD2C9601FFB47A200A201C1 /* dummyViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,9 +72,8 @@
 		BAC8903E1FFAEE8B004B05CC /* ScheduleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleData.swift; sourceTree = "<group>"; };
 		BAC8903F1FFAEE8B004B05CC /* eventsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventsData.swift; sourceTree = "<group>"; };
 		BAC890401FFAEE8B004B05CC /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
-		BAC8904B1FFB079D004B05CC /* CSVtoArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVtoArray.swift; sourceTree = "<group>"; };
+		BAC8904B1FFB079D004B05CC /* CSVFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVFile.swift; sourceTree = "<group>"; };
 		BAC8904D1FFB10B4004B05CC /* Updatable Files */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Updatable Files"; sourceTree = SOURCE_ROOT; };
-		BAD2C95E1FFB17DF00A201C1 /* Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
 		BAD2C9601FFB47A200A201C1 /* dummyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -178,8 +176,7 @@
 				BAC8903F1FFAEE8B004B05CC /* eventsData.swift */,
 				BAC890401FFAEE8B004B05CC /* Locations.swift */,
 				BAC8903E1FFAEE8B004B05CC /* ScheduleData.swift */,
-				BAC8904B1FFB079D004B05CC /* CSVtoArray.swift */,
-				BAD2C95E1FFB17DF00A201C1 /* Download.swift */,
+				BAC8904B1FFB079D004B05CC /* CSVFile.swift */,
 			);
 			name = "Data Handling";
 			sourceTree = "<group>";
@@ -351,7 +348,7 @@
 				BA1026C91FDDFC8D00D16FBD /* SecondViewController.swift in Sources */,
 				BAC890411FFAEE8B004B05CC /* ScheduleData.swift in Sources */,
 				BA1567651FF5F6CF00A49D65 /* ModalEventPicker.swift in Sources */,
-				BAC8904C1FFB079D004B05CC /* CSVtoArray.swift in Sources */,
+				BAC8904C1FFB079D004B05CC /* CSVFile.swift in Sources */,
 				BA1567631FF5DEBE00A49D65 /* LaunchScreen.swift in Sources */,
 				BAC890431FFAEE8B004B05CC /* Locations.swift in Sources */,
 				BA1026C51FDDFC8D00D16FBD /* AppDelegate.swift in Sources */,
@@ -359,7 +356,6 @@
 				BA1567671FF6237200A49D65 /* ModalSchoolPicker.swift in Sources */,
 				BA1026F51FDDFED000D16FBD /* ThirdViewController.swift in Sources */,
 				BA1026C71FDDFC8D00D16FBD /* FirstViewController.swift in Sources */,
-				BAD2C95F1FFB17DF00A201C1 /* Download.swift in Sources */,
 				BA3765831FF5C39C008C4A63 /* DataStorage.xcdatamodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
