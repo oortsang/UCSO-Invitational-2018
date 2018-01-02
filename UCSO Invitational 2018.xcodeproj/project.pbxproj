@@ -26,6 +26,7 @@
 		BAC890421FFAEE8B004B05CC /* eventsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC8903F1FFAEE8B004B05CC /* eventsData.swift */; };
 		BAC890431FFAEE8B004B05CC /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC890401FFAEE8B004B05CC /* Locations.swift */; };
 		BAC8904C1FFB079D004B05CC /* CSVtoArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC8904B1FFB079D004B05CC /* CSVtoArray.swift */; };
+		BAC8904E1FFB10B4004B05CC /* Updatable Files in Resources */ = {isa = PBXBuildFile; fileRef = BAC8904D1FFB10B4004B05CC /* Updatable Files */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		BAC8903F1FFAEE8B004B05CC /* eventsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventsData.swift; sourceTree = "<group>"; };
 		BAC890401FFAEE8B004B05CC /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
 		BAC8904B1FFB079D004B05CC /* CSVtoArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVtoArray.swift; sourceTree = "<group>"; };
+		BAC8904D1FFB10B4004B05CC /* Updatable Files */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Updatable Files"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 				BA1026CF1FDDFC8D00D16FBD /* LaunchScreen.storyboard */,
 				BA1567621FF5DEBE00A49D65 /* LaunchScreen.swift */,
 				BA1026D21FDDFC8D00D16FBD /* Info.plist */,
+				BAC8904D1FFB10B4004B05CC /* Updatable Files */,
 			);
 			path = "UCSO Invitational 2018";
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAC8904E1FFB10B4004B05CC /* Updatable Files in Resources */,
 				BA1026D11FDDFC8D00D16FBD /* LaunchScreen.storyboard in Resources */,
 				BA1026CE1FDDFC8D00D16FBD /* Assets.xcassets in Resources */,
 				BA1026CC1FDDFC8D00D16FBD /* Main.storyboard in Resources */,
