@@ -8,16 +8,20 @@
 
 import Foundation
 
-//takes the text info from a CSV and turns it into a 2D array
-func readCSV(fileContents: String) -> [[String]]? {
-    let rows: [String] = fileContents.components(separatedBy: "\n")
-    if rows.count > 0 {
-        var data: [[String]] = []
-        for (i, row) in rows.enumerated() {
-            data[i] = row.components(separatedBy: ",")
+class CSVInfo {
+
+    
+    //takes the text info from a CSV and turns it into a 2D array
+    static func readCSV(fileContents: String) -> [[String]]? {
+        let rows: [String] = fileContents.components(separatedBy: "\n")
+        if rows.count > 0 {
+            var data: [[String]] = []
+            for (i, row) in rows.enumerated() {
+                data[i] = row.components(separatedBy: ",")
+            }
+            return data
+        } else {
+            return [[""]]
         }
-        return data
-    } else {
-        return [[""]]
     }
 }

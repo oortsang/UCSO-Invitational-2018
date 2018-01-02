@@ -39,6 +39,11 @@ func orderEvents(eventList: [EventLabel]) -> [EventLabel] {
 
 //returns whether first event happens before the second event
 func comesBefore (ev1: EventLabel, ev2: EventLabel) -> Bool {
+    //in case time is unknown
+    if (ev1.time == "?" || ev2.time == "?") {
+        return true
+    }
+    
     var isBefore = true
     let hourOrder = [7,8,9,10,11,12,1,2,3,4,5,6]
     let separator = {(str: String) -> [String] in return str.components(separatedBy: ":")}
