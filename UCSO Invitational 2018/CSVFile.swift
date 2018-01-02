@@ -9,19 +9,12 @@
 import Foundation
 import CoreData
 
-//notify others for when download is finished
-extension Notification.Name {
-    static let downloadFinished = Notification.Name("downloadFinished")
-}
+
 
 func getCol(array: [[Any]], col: Int) -> [Any]? {
     var tmp: [Any] = []
-    do {
-        for row in array {
-            tmp.append(row[col])
-        }
-    } catch {
-        return nil
+    for row in array {
+        tmp.append(row[col])
     }
     return tmp
 }
@@ -70,7 +63,7 @@ class CSVFile {
     //storing these csv guys
     //tell it what name to save under
     func save(name: String) {
-        self.clear(fileName: name)
+        self.clear(fileName: name) //clean up any mess
         let newFile = NSEntityDescription.insertNewObject(forEntityName: "Files", into: CSVFile.fileContext)
         newFile.setValue (name, forKey: "fileName")
         newFile.setValue(self.file, forKey: "data")
@@ -111,10 +104,9 @@ class CSVFile {
             let results = try CSVFile.fileContext.fetch(CSVFile.fileRequest) as? [NSManagedObject]
             if results!.count > 0 {
                 
-                for object in results as! [NSManagedObject] {
+                for object in results as [NSManagedObject]! {
                     //if object.value(forKey: "fileName") as! String == fileName {
-                    if let file = object.value(forKey: "fileName") as? String {
-                        print(file)
+                    if (object.value(forKey: "fileName") as? String) != nil {
                         CSVFile.fileContext.delete(object)
                     }
                 }

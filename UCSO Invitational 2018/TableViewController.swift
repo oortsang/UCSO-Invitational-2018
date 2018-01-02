@@ -20,7 +20,8 @@ class TableViewController: UITableViewController {
         self.navigationItem.title = "Choose Events"
         //print(EventsData.list)
         loadEvents()
-        cleanDuplicates()
+        self.cleanDuplicates()
+        print("hi")
     }
     
     @objc func reloadTableData() -> Void {
@@ -71,12 +72,11 @@ class TableViewController: UITableViewController {
             // Delete the row from the data source as well as core data
             let delEvent = tableView.cellForRow(at: indexPath)!.textLabel!.text!
             _ = removeEvent(eventName: delEvent, indexPath: indexPath)
-            
-            //eventsData.list.remove(at: indexPath.row) //taken care of in removeEvent(.)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+            sendNotificationToUpdateSched()
             
+        } else if editingStyle == .insert {
+            sendNotificationToUpdateSched()
         }    
     }
     
@@ -107,6 +107,9 @@ class TableViewController: UITableViewController {
         saveEvents()
     }
     
+    func sendNotificationToUpdateSched() -> Void {
+        NotificationCenter.default.post(name: .reloadSchoolName, object: nil)
+    }
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

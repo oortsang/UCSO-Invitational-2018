@@ -29,6 +29,7 @@ class EventLabel {
     init(name: String, loc: String, time: String) {
         (self.name, self.loc, self.time) = (name, loc, time)
     }
+    init () {}
 }
 
 
@@ -87,14 +88,14 @@ class ScheduleData {
         return "(location of event)" //ALSO CHANGE THIS
     }
     static func updateHomerooms(dataFile: CSVFile) {
-        do {
-            print(EventsData.currentSchool, "!!!")
-            ScheduleData.homeroomList = getCol(array: dataFile.data, col: 1) as! [String]
-            ScheduleData.homeroom = ScheduleData.homeroomList[EventsData.teamNumber()]
-            dataFile.save(name: "homerooms")
-        } catch {
-            return
-        }
+        //do {
+        print(EventsData.currentSchool, "!!!")
+        ScheduleData.homeroomList = getCol(array: dataFile.data, col: 1) as! [String]
+        ScheduleData.homeroom = ScheduleData.homeroomList[EventsData.teamNumber()-1]
+        dataFile.save(name: "homerooms")
+        //} catch {
+        //    return
+        //}
     }
     
 }

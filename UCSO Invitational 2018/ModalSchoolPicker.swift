@@ -9,10 +9,6 @@
 import UIKit
 import CoreData
 
-extension Notification.Name {
-    static let reloadSchoolName = Notification.Name("reloadSchool")
-}
-
 class ModalSchoolPicker: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var schoolPicker: UIPickerView!

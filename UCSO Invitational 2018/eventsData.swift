@@ -25,7 +25,7 @@ class EventsData: NSObject {
 }
 
 func hasHovercraft() -> Bool {
-    print(EventsData.list)
+    //print(EventsData.list)
     return EventsData.list.contains("Hovercraft")
 }
 

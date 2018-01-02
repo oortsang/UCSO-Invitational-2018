@@ -8,10 +8,6 @@
 
 import UIKit
 
-extension Notification.Name {
-    static let reload = Notification.Name("reload")
-}
-
 class ModalEventPicker: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var eventPicker: UIPickerView!
@@ -45,6 +41,8 @@ class ModalEventPicker: UIViewController, UIPickerViewDelegate, UIPickerViewData
             print("\(newEvent) added!")
             EventsData.list.append(newEvent)
             addEvent(eventName: newEvent)
+            NotificationCenter.default.post(name: .reloadSchoolName, object: nil)
+            
             cancelButton(addButton)
         } else {
             let alert = UIAlertController(title: "Event Seletion", message: "You've already selected this event", preferredStyle: .alert)
@@ -67,17 +65,4 @@ class ModalEventPicker: UIViewController, UIPickerViewDelegate, UIPickerViewData
     func sendNotificationToUpdate() -> Void {
         NotificationCenter.default.post(name: .reload, object: nil)
     }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        print("hello there \(segue.identifier) ")
-    }
-    */
-
 }

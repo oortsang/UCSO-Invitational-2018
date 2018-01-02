@@ -19,6 +19,8 @@
 		BA1567631FF5DEBE00A49D65 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1567621FF5DEBE00A49D65 /* LaunchScreen.swift */; };
 		BA1567651FF5F6CF00A49D65 /* ModalEventPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1567641FF5F6CF00A49D65 /* ModalEventPicker.swift */; };
 		BA1567671FF6237200A49D65 /* ModalSchoolPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1567661FF6237200A49D65 /* ModalSchoolPicker.swift */; };
+		BA2370F91FFC05E4006AD5E0 /* Downloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2370F81FFC05E4006AD5E0 /* Downloadable.swift */; };
+		BA2370FB1FFC0ED9006AD5E0 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2370FA1FFC0ED9006AD5E0 /* Notifications.swift */; };
 		BA3765831FF5C39C008C4A63 /* DataStorage.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = BA3765821FF5C39C008C4A63 /* DataStorage.xcdatamodel */; };
 		BA8AD9A61FF570EC008BA972 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8AD9A51FF570EC008BA972 /* TableViewController.swift */; };
 		BA8AD9CF1FF5BA03008BA972 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA8AD9CE1FF5BA03008BA972 /* CoreData.framework */; };
@@ -27,7 +29,6 @@
 		BAC890431FFAEE8B004B05CC /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC890401FFAEE8B004B05CC /* Locations.swift */; };
 		BAC8904C1FFB079D004B05CC /* CSVFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC8904B1FFB079D004B05CC /* CSVFile.swift */; };
 		BAC8904E1FFB10B4004B05CC /* Updatable Files in Resources */ = {isa = PBXBuildFile; fileRef = BAC8904D1FFB10B4004B05CC /* Updatable Files */; };
-		BAD2C9611FFB47A200A201C1 /* dummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD2C9601FFB47A200A201C1 /* dummyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,8 @@
 		BA1567621FF5DEBE00A49D65 /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		BA1567641FF5F6CF00A49D65 /* ModalEventPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalEventPicker.swift; sourceTree = "<group>"; };
 		BA1567661FF6237200A49D65 /* ModalSchoolPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalSchoolPicker.swift; sourceTree = "<group>"; };
+		BA2370F81FFC05E4006AD5E0 /* Downloadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloadable.swift; sourceTree = "<group>"; };
+		BA2370FA1FFC0ED9006AD5E0 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		BA3765821FF5C39C008C4A63 /* DataStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = DataStorage.xcdatamodel; path = UCSO_Invitational_2018.xcdatamodeld/DataStorage.xcdatamodel; sourceTree = "<group>"; };
 		BA8AD9A51FF570EC008BA972 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		BA8AD9CE1FF5BA03008BA972 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -74,7 +77,6 @@
 		BAC890401FFAEE8B004B05CC /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
 		BAC8904B1FFB079D004B05CC /* CSVFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVFile.swift; sourceTree = "<group>"; };
 		BAC8904D1FFB10B4004B05CC /* Updatable Files */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Updatable Files"; sourceTree = SOURCE_ROOT; };
-		BAD2C9601FFB47A200A201C1 /* dummyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,7 +141,6 @@
 				BA1567621FF5DEBE00A49D65 /* LaunchScreen.swift */,
 				BA1026D21FDDFC8D00D16FBD /* Info.plist */,
 				BAC8904D1FFB10B4004B05CC /* Updatable Files */,
-				BAD2C9601FFB47A200A201C1 /* dummyViewController.swift */,
 			);
 			path = "UCSO Invitational 2018";
 			sourceTree = "<group>";
@@ -177,6 +178,8 @@
 				BAC890401FFAEE8B004B05CC /* Locations.swift */,
 				BAC8903E1FFAEE8B004B05CC /* ScheduleData.swift */,
 				BAC8904B1FFB079D004B05CC /* CSVFile.swift */,
+				BA2370F81FFC05E4006AD5E0 /* Downloadable.swift */,
+				BA2370FA1FFC0ED9006AD5E0 /* Notifications.swift */,
 			);
 			name = "Data Handling";
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA2370FB1FFC0ED9006AD5E0 /* Notifications.swift in Sources */,
 				BA8AD9A61FF570EC008BA972 /* TableViewController.swift in Sources */,
 				BAC890421FFAEE8B004B05CC /* eventsData.swift in Sources */,
 				BA1026C91FDDFC8D00D16FBD /* SecondViewController.swift in Sources */,
@@ -350,9 +354,9 @@
 				BA1567651FF5F6CF00A49D65 /* ModalEventPicker.swift in Sources */,
 				BAC8904C1FFB079D004B05CC /* CSVFile.swift in Sources */,
 				BA1567631FF5DEBE00A49D65 /* LaunchScreen.swift in Sources */,
+				BA2370F91FFC05E4006AD5E0 /* Downloadable.swift in Sources */,
 				BAC890431FFAEE8B004B05CC /* Locations.swift in Sources */,
 				BA1026C51FDDFC8D00D16FBD /* AppDelegate.swift in Sources */,
-				BAD2C9611FFB47A200A201C1 /* dummyViewController.swift in Sources */,
 				BA1567671FF6237200A49D65 /* ModalSchoolPicker.swift in Sources */,
 				BA1026F51FDDFED000D16FBD /* ThirdViewController.swift in Sources */,
 				BA1026C71FDDFC8D00D16FBD /* FirstViewController.swift in Sources */,
