@@ -13,6 +13,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var homeroomLocation: UITextField!
     
     override func viewDidLoad() {
+        loadEvents()
         super.viewDidLoad()
         loadSchoolTitleText()
          NotificationCenter.default.addObserver(self, selector: #selector(updateSchoolTitleText), name: .reloadSchoolName, object: nil)
@@ -54,7 +55,11 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return ScheduleData.earlyEvents.count
+            if hasHovercraft() {
+                return 1 + ScheduleData.earlyEvents.count
+            } else {
+                return ScheduleData.earlyEvents.count
+            }
         case 1:
             return ScheduleData.lateEvents.count
         default:
@@ -70,11 +75,21 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         let section = indexPath.section
         switch section {
         case 0:
-            cell.textLabel!.text = (ScheduleData.earlyEvents[indexPath.row] as EventLabel).print()
+            print(indexPath.row)
+            if hasHovercraft() && (indexPath.row == ScheduleData.earlyEvents.count) {
+                let hoverWrite = EventLabel(name: "Hovercraft Impound/Written Test", loc: "(?)", time: "8:00-8:30 AM")
+                cell.textLabel!.text = hoverWrite.print()
+            } else {
+                cell.textLabel!.text = (ScheduleData.earlyEvents[indexPath.row] as EventLabel).print()
+            }
+            break
         case 1:
             cell.textLabel!.text = (ScheduleData.lateEvents[indexPath.row] as EventLabel).print()
+            break
         default:
-            cell.textLabel!.text = (ScheduleData.events[indexPath.row] as EventLabel).print()
+            print (ScheduleData.events, indexPath.row)
+            //fix when we get more data from online
+            //cell.textLabel!.text = (ScheduleData.events[indexPath.row] as EventLabel).print()
         }
         return cell
     }

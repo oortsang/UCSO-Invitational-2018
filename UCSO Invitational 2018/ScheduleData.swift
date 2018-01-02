@@ -21,8 +21,9 @@ class EventLabel {
     func setTuple(setName: String, setLoc: String, setTime: String) {
          (self.name, self.loc, self.time) = (setName, setLoc, setTime)
     }
+    //returns a string
     func print() -> String! {
-        return "\(self.name) at \(self.time) in \(self.loc)"
+        return "\(self.time) @ \(self.loc): \(self.name)"
     }
     
     init(name: String, loc: String, time: String) {

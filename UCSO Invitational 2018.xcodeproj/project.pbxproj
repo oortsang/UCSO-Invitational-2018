@@ -21,10 +21,11 @@
 		BA1567671FF6237200A49D65 /* ModalSchoolPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1567661FF6237200A49D65 /* ModalSchoolPicker.swift */; };
 		BA3765831FF5C39C008C4A63 /* DataStorage.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = BA3765821FF5C39C008C4A63 /* DataStorage.xcdatamodel */; };
 		BA8AD9A61FF570EC008BA972 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8AD9A51FF570EC008BA972 /* TableViewController.swift */; };
-		BA8AD9A81FF5B576008BA972 /* eventsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8AD9A71FF5B576008BA972 /* eventsData.swift */; };
 		BA8AD9CF1FF5BA03008BA972 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA8AD9CE1FF5BA03008BA972 /* CoreData.framework */; };
-		BAB4E98F1FF6C57000CC791C /* ScheduleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB4E98E1FF6C57000CC791C /* ScheduleData.swift */; };
-		BAB5E4311FDE2A420017EC6D /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB5E4301FDE2A420017EC6D /* Locations.swift */; };
+		BAC890411FFAEE8B004B05CC /* ScheduleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC8903E1FFAEE8B004B05CC /* ScheduleData.swift */; };
+		BAC890421FFAEE8B004B05CC /* eventsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC8903F1FFAEE8B004B05CC /* eventsData.swift */; };
+		BAC890431FFAEE8B004B05CC /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC890401FFAEE8B004B05CC /* Locations.swift */; };
+		BAC8904C1FFB079D004B05CC /* CSVtoArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC8904B1FFB079D004B05CC /* CSVtoArray.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,10 +66,11 @@
 		BA1567661FF6237200A49D65 /* ModalSchoolPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalSchoolPicker.swift; sourceTree = "<group>"; };
 		BA3765821FF5C39C008C4A63 /* DataStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = DataStorage.xcdatamodel; path = UCSO_Invitational_2018.xcdatamodeld/DataStorage.xcdatamodel; sourceTree = "<group>"; };
 		BA8AD9A51FF570EC008BA972 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
-		BA8AD9A71FF5B576008BA972 /* eventsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventsData.swift; sourceTree = "<group>"; };
 		BA8AD9CE1FF5BA03008BA972 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		BAB4E98E1FF6C57000CC791C /* ScheduleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleData.swift; sourceTree = "<group>"; };
-		BAB5E4301FDE2A420017EC6D /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
+		BAC8903E1FFAEE8B004B05CC /* ScheduleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleData.swift; sourceTree = "<group>"; };
+		BAC8903F1FFAEE8B004B05CC /* eventsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventsData.swift; sourceTree = "<group>"; };
+		BAC890401FFAEE8B004B05CC /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
+		BAC8904B1FFB079D004B05CC /* CSVtoArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVtoArray.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,16 +123,11 @@
 		BA1026C31FDDFC8D00D16FBD /* UCSO Invitational 2018 */ = {
 			isa = PBXGroup;
 			children = (
+				BAC890471FFAEFC1004B05CC /* Data Handling */,
 				BA1026C41FDDFC8D00D16FBD /* AppDelegate.swift */,
-				BA1026C61FDDFC8D00D16FBD /* FirstViewController.swift */,
-				BAB5E4301FDE2A420017EC6D /* Locations.swift */,
-				BA1026C81FDDFC8D00D16FBD /* SecondViewController.swift */,
-				BA8AD9A51FF570EC008BA972 /* TableViewController.swift */,
-				BA8AD9A71FF5B576008BA972 /* eventsData.swift */,
-				BA1567641FF5F6CF00A49D65 /* ModalEventPicker.swift */,
-				BA1567661FF6237200A49D65 /* ModalSchoolPicker.swift */,
-				BAB4E98E1FF6C57000CC791C /* ScheduleData.swift */,
-				BA1026F41FDDFED000D16FBD /* ThirdViewController.swift */,
+				BAC890491FFAEFE8004B05CC /* Map View Controller */,
+				BAC890481FFAEFD2004B05CC /* Schedule View Controller */,
+				BAC8904A1FFAEFFD004B05CC /* Browser View Controller */,
 				BA1026CA1FDDFC8D00D16FBD /* Main.storyboard */,
 				BA3765821FF5C39C008C4A63 /* DataStorage.xcdatamodel */,
 				BA1026CD1FDDFC8D00D16FBD /* Assets.xcassets */,
@@ -165,6 +162,44 @@
 				BA8AD9CE1FF5BA03008BA972 /* CoreData.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BAC890471FFAEFC1004B05CC /* Data Handling */ = {
+			isa = PBXGroup;
+			children = (
+				BAC8903F1FFAEE8B004B05CC /* eventsData.swift */,
+				BAC890401FFAEE8B004B05CC /* Locations.swift */,
+				BAC8903E1FFAEE8B004B05CC /* ScheduleData.swift */,
+				BAC8904B1FFB079D004B05CC /* CSVtoArray.swift */,
+			);
+			name = "Data Handling";
+			sourceTree = "<group>";
+		};
+		BAC890481FFAEFD2004B05CC /* Schedule View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BA1026C81FDDFC8D00D16FBD /* SecondViewController.swift */,
+				BA8AD9A51FF570EC008BA972 /* TableViewController.swift */,
+				BA1567641FF5F6CF00A49D65 /* ModalEventPicker.swift */,
+				BA1567661FF6237200A49D65 /* ModalSchoolPicker.swift */,
+			);
+			name = "Schedule View Controller";
+			sourceTree = "<group>";
+		};
+		BAC890491FFAEFE8004B05CC /* Map View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BA1026C61FDDFC8D00D16FBD /* FirstViewController.swift */,
+			);
+			name = "Map View Controller";
+			sourceTree = "<group>";
+		};
+		BAC8904A1FFAEFFD004B05CC /* Browser View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BA1026F41FDDFED000D16FBD /* ThirdViewController.swift */,
+			);
+			name = "Browser View Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,16 +337,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA8AD9A61FF570EC008BA972 /* TableViewController.swift in Sources */,
+				BAC890421FFAEE8B004B05CC /* eventsData.swift in Sources */,
 				BA1026C91FDDFC8D00D16FBD /* SecondViewController.swift in Sources */,
+				BAC890411FFAEE8B004B05CC /* ScheduleData.swift in Sources */,
 				BA1567651FF5F6CF00A49D65 /* ModalEventPicker.swift in Sources */,
+				BAC8904C1FFB079D004B05CC /* CSVtoArray.swift in Sources */,
 				BA1567631FF5DEBE00A49D65 /* LaunchScreen.swift in Sources */,
-				BAB4E98F1FF6C57000CC791C /* ScheduleData.swift in Sources */,
+				BAC890431FFAEE8B004B05CC /* Locations.swift in Sources */,
 				BA1026C51FDDFC8D00D16FBD /* AppDelegate.swift in Sources */,
 				BA1567671FF6237200A49D65 /* ModalSchoolPicker.swift in Sources */,
 				BA1026F51FDDFED000D16FBD /* ThirdViewController.swift in Sources */,
-				BAB5E4311FDE2A420017EC6D /* Locations.swift in Sources */,
 				BA1026C71FDDFC8D00D16FBD /* FirstViewController.swift in Sources */,
-				BA8AD9A81FF5B576008BA972 /* eventsData.swift in Sources */,
 				BA3765831FF5C39C008C4A63 /* DataStorage.xcdatamodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
