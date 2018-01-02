@@ -166,12 +166,17 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
                 let i = EventsData.completeList.index(of: beName)!
                 let teamBlock = Int(ceil(Float(EventsData.teamNumber()!/10)))
                 let loc = dlFiles.testEvents.data[i+1][5]
-                let time = cleanTime(time: dlFiles.testEvents.data[i+1][teamBlock], duration: 30)
+                var time = ""
+                if beName == "Hovercraft" {
+                    time = cleanTime(time: dlFiles.testEvents.data[i+1][teamBlock], duration: 30)!
+                } else {
+                    time = "8:00 - 8:30 AM"
+                }
                 var evName = "Impound for " + beName
                 if beName == "Hovercraft" {
                     evName = "Written Test + " + evName
                 }
-                let buildEvent = EventLabel(name: evName, loc: loc, time: time!)
+                let buildEvent = EventLabel(name: evName, loc: loc, time: time)
                 
                 cell.textLabel!.text = buildEvent.print()
             }
