@@ -65,21 +65,19 @@ func comesBefore (ev1: EventLabel, ev2: EventLabel) -> Bool {
 }
 
 
-
-//temporary info; hopefully can change later
 class ScheduleData {
     static var events : [EventLabel] = []
     static var homeroomList:[String] = [] //store all the homerooms, 0-indexed
     static var homeroom = "" //change depending on school
     static var earlyEvents = [
-        EventLabel(name: "Coach's Meeting/Check-in", loc: "Reynold's Club", time: "7:30-8:00 AM"),
-        EventLabel(name: "Impound (if applicable)", loc: "build event locations", time: "8:00-8:30 AM")
+        EventLabel(name: "Coach's Meeting/Check-in", loc: "Reynold's Club", time: "7:30 - 8:00 AM")
+        //, EventLabel(name: "Impound (if applicable)", loc: "build event locations", time: "8:00-8:30 AM")
     ]
     static var lateEvents = [
-        EventLabel(name: "Fun Activities (Tour, Student Panel, etc.)", loc: "Reynolds Club and Mandel", time: "2:30-3:30 PM"),
-        EventLabel(name: "Student Organization Performances", loc: "Mandel", time: "3:30-4:15 PM"),
-        EventLabel(name: "Keynote Speech by Jenny Kopach", loc: "Mandel", time: "4:15-4:30 PM"),
-        EventLabel(name: "Awards Ceremony", loc: "Mandel", time: "4:30-6:00 PM")
+        EventLabel(name: "Fun Activities! (Tour, Student Panel, etc.)", loc: "Reynolds/Mandel", time: "2:30 - 3:30 PM"),
+        EventLabel(name: "UC Student Organization Performances", loc: "Mandel", time: "3:30 - 4:15 PM"),
+        EventLabel(name: "Keynote Speech by Jenny Kopach", loc: "Mandel", time: "4:15 - 4:30 PM"),
+        EventLabel(name: "Award Ceremony", loc: "Mandel", time: "4:30 - 6:00 PM")
     ]
     static func eventTime (teamName: String) -> String! {
         return "12:00 PM" //CHANGE THIS
@@ -88,14 +86,10 @@ class ScheduleData {
         return "(location of event)" //ALSO CHANGE THIS
     }
     static func updateHomerooms(dataFile: CSVFile) {
-        //do {
         print(EventsData.currentSchool, "!!!")
         ScheduleData.homeroomList = getCol(array: dataFile.data, col: 1) as! [String]
         ScheduleData.homeroom = ScheduleData.homeroomList[EventsData.teamNumber()-1]
         dataFile.save(name: "homerooms")
-        //} catch {
-        //    return
-        //}
     }
     
 }

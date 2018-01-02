@@ -76,18 +76,27 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         //update the table itself
         self.updateEvents()
         
-        schedView.reloadSections(IndexSet(integer: 1), with: .none)
+        //schedView.reloadSections(IndexSet(integer: 1), with: .none)
+        schedView.reloadSections(IndexSet([0,1,2]) , with: .none)
         //schedView.reloadData()
         schedView.reloadInputViews()
     }
     
     //helper function just for string processing
-    func cleanTime(time: String) -> String! {
+    func cleanTime(time: String, duration: Int = 50) -> String! {
         var result = time
         if time == "" || time == "?" {
             result = "?"
         } else if time.count <= 2 {
-            result += ":00"
+            if duration < 60 && duration != 0 {
+                let strDur = String(duration)
+                let end = time + ":" + ((strDur.count < 2) ? ("0"+strDur) : (strDur))
+                let ampm = (Int(time)! > 5) ? "A" : "P"
+                result += ":00 - \(end) \(ampm)M"
+            } else {
+                let ampm = (Int(time)! > 5) ? "A" : "P"
+                result += ":00 \(ampm)M"
+            }
         } //leave the time alone if it is a 'full' time, i.e. 8:00-8:30 or 9:00
         return result
     }
@@ -98,8 +107,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         for elm in EventsData.list {
             let i = EventsData.completeList.index(of: elm)!
             let loc = dlFiles.testEvents.data[i+1][5]
-            let teamBlock =  Int(ceil(Float(EventsData.teamNumber()!/10))) //1-10,11-20,21-30,31-40
-            print(EventsData.teamNumber()!, i, teamBlock)
+
             var time = "?"
             
             //check for build events
@@ -110,6 +118,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
                 print("Trying to access: team number \(teamNumber) for the \(j)th event")
                 time = cleanTime(time: dlFiles.buildEvents.data[j][teamNumber])
             } else {
+                let teamBlock =  Int(ceil(Float(EventsData.teamNumber()!/10))) //1-10,11-20,21-30,31-40
                 time = cleanTime(time: dlFiles.testEvents.data[i+1][teamBlock])
             }
             print(time)
@@ -128,11 +137,12 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            if hasHovercraft() {
+            /*if hasHovercraft() {
                 return 1 + ScheduleData.earlyEvents.count
             } else {
                 return ScheduleData.earlyEvents.count
-            }
+            }*/
+            return ScheduleData.earlyEvents.count + EventsData.impoundList().count
         case 2:
             return ScheduleData.lateEvents.count
         default:
@@ -149,12 +159,21 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         case 0:
             print(indexPath.row)
             /* HANDLE IMPOUND BUILD EVENTS MORE PRETTILY!! */
-            
-            if hasHovercraft() && (indexPath.row == ScheduleData.earlyEvents.count) {
-                let hoverWrite = EventLabel(name: "Hovercraft Impound/Written Test", loc: "(?)", time: "8:00-8:30 AM")
-                cell.textLabel!.text = hoverWrite.print()
-            } else {
+            if indexPath.row < ScheduleData.earlyEvents.count {
                 cell.textLabel!.text = (ScheduleData.earlyEvents[indexPath.row] as EventLabel).print()
+            } else {
+                let beName = EventsData.impoundList()[indexPath.row - ScheduleData.earlyEvents.count]
+                let i = EventsData.completeList.index(of: beName)!
+                let teamBlock = Int(ceil(Float(EventsData.teamNumber()!/10)))
+                let loc = dlFiles.testEvents.data[i+1][5]
+                let time = cleanTime(time: dlFiles.testEvents.data[i+1][teamBlock], duration: 30)
+                var evName = "Impound for " + beName
+                if beName == "Hovercraft" {
+                    evName = "Written Test + " + evName
+                }
+                let buildEvent = EventLabel(name: evName, loc: loc, time: time!)
+                
+                cell.textLabel!.text = buildEvent.print()
             }
             break
         case 2:

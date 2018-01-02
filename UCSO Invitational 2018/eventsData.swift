@@ -25,6 +25,16 @@ class EventsData: NSObject {
     static func isSelfScheduled(evnt: String) -> Bool! {
         return EventsData.selfScheduled.contains(evnt)
     }
+    //returns the currently selected events that require impounds
+    static func impoundList() -> [String] {
+        var tmpList: [String] = []
+        for event in EventsData.list {
+            if selfScheduled.contains(event) || event == "Thermodynamics" {
+                tmpList.append(event)
+            }
+        }
+        return tmpList.sorted()
+    }
 }
 
 func hasHovercraft() -> Bool {
