@@ -14,8 +14,10 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let centerLoc = CLLocationCoordinate2DMake(41.79, -87.6)
-        let mapSpan = MKCoordinateSpanMake(0.01, 0.01)
+        //let centerLoc = CLLocationCoordinate2DMake(41.79, -87.6)
+        //let mapSpan = MKCoordinateSpanMake(0.01, 0.01)
+        let centerLoc = CLLocationCoordinate2DMake(41.79, -87.599)
+        let mapSpan = MKCoordinateSpanMake(0.015, 0.015)
         let mapRegion = MKCoordinateRegion(center: centerLoc, span: mapSpan)
         self.map.setRegion(mapRegion, animated: true)
         

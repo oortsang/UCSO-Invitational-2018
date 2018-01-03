@@ -12,7 +12,7 @@ import CoreLocation
 
 
 let locList: [(String, String, Double, Double)]
-    = [ ("BSLC", "Biological Sciences Learning Center", 41.7914471, -87.6026488),
+    = [ ("BSLC", "Biological Sciences Learning Center", 41.7918, -87.6026288),
         ("Hinds", "Hinds Geophysical Sciences Center", 41.7902933, -87.6016511),
         ("Crerar+CSIL", "Crerar Library (contains Computer Science Instructional Laboratory)", 41.790225, -87.602556),
         ("Harper", "Harper Memorial Library", 41.7879593, -87.5995794),

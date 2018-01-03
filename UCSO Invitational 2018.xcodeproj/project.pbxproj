@@ -21,7 +21,6 @@
 		BA1567671FF6237200A49D65 /* ModalSchoolPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1567661FF6237200A49D65 /* ModalSchoolPicker.swift */; };
 		BA2370F91FFC05E4006AD5E0 /* Downloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2370F81FFC05E4006AD5E0 /* Downloadable.swift */; };
 		BA2370FB1FFC0ED9006AD5E0 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2370FA1FFC0ED9006AD5E0 /* Notifications.swift */; };
-		BA2370FD1FFC624B006AD5E0 /* Screenshots in Resources */ = {isa = PBXBuildFile; fileRef = BA2370FC1FFC624A006AD5E0 /* Screenshots */; };
 		BA3765831FF5C39C008C4A63 /* DataStorage.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = BA3765821FF5C39C008C4A63 /* DataStorage.xcdatamodel */; };
 		BA8AD9A61FF570EC008BA972 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8AD9A51FF570EC008BA972 /* TableViewController.swift */; };
 		BA8AD9CF1FF5BA03008BA972 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA8AD9CE1FF5BA03008BA972 /* CoreData.framework */; };
@@ -29,7 +28,6 @@
 		BAC890421FFAEE8B004B05CC /* eventsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC8903F1FFAEE8B004B05CC /* eventsData.swift */; };
 		BAC890431FFAEE8B004B05CC /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC890401FFAEE8B004B05CC /* Locations.swift */; };
 		BAC8904C1FFB079D004B05CC /* CSVFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC8904B1FFB079D004B05CC /* CSVFile.swift */; };
-		BAC8904E1FFB10B4004B05CC /* Updatable Files in Resources */ = {isa = PBXBuildFile; fileRef = BAC8904D1FFB10B4004B05CC /* Updatable Files */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,7 +68,6 @@
 		BA1567661FF6237200A49D65 /* ModalSchoolPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalSchoolPicker.swift; sourceTree = "<group>"; };
 		BA2370F81FFC05E4006AD5E0 /* Downloadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloadable.swift; sourceTree = "<group>"; };
 		BA2370FA1FFC0ED9006AD5E0 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
-		BA2370FC1FFC624A006AD5E0 /* Screenshots */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Screenshots; sourceTree = "<group>"; };
 		BA3765821FF5C39C008C4A63 /* DataStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = DataStorage.xcdatamodel; path = UCSO_Invitational_2018.xcdatamodeld/DataStorage.xcdatamodel; sourceTree = "<group>"; };
 		BA8AD9A51FF570EC008BA972 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		BA8AD9CE1FF5BA03008BA972 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -78,7 +75,6 @@
 		BAC8903F1FFAEE8B004B05CC /* eventsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventsData.swift; sourceTree = "<group>"; };
 		BAC890401FFAEE8B004B05CC /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
 		BAC8904B1FFB079D004B05CC /* CSVFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVFile.swift; sourceTree = "<group>"; };
-		BAC8904D1FFB10B4004B05CC /* Updatable Files */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Updatable Files"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,8 +138,6 @@
 				BA1026CF1FDDFC8D00D16FBD /* LaunchScreen.storyboard */,
 				BA1567621FF5DEBE00A49D65 /* LaunchScreen.swift */,
 				BA1026D21FDDFC8D00D16FBD /* Info.plist */,
-				BAC8904D1FFB10B4004B05CC /* Updatable Files */,
-				BA2370FC1FFC624A006AD5E0 /* Screenshots */,
 			);
 			path = "UCSO Invitational 2018";
 			sourceTree = "<group>";
@@ -321,11 +315,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAC8904E1FFB10B4004B05CC /* Updatable Files in Resources */,
 				BA1026D11FDDFC8D00D16FBD /* LaunchScreen.storyboard in Resources */,
 				BA1026CE1FDDFC8D00D16FBD /* Assets.xcassets in Resources */,
 				BA1026CC1FDDFC8D00D16FBD /* Main.storyboard in Resources */,
-				BA2370FD1FFC624B006AD5E0 /* Screenshots in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
