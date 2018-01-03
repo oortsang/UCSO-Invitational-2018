@@ -118,7 +118,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
                 print("Trying to access: team number \(teamNumber) for the \(j)th event")
                 time = cleanTime(time: dlFiles.buildEvents.data[j][teamNumber])
             } else {
-                let teamBlock =  Int(ceil(Float(EventsData.teamNumber()!/10))) //1-10,11-20,21-30,31-40
+                let teamBlock =  Int(ceil(Float(EventsData.teamNumber()!)/10)) //1-10,11-20,21-30,31-40
                 time = cleanTime(time: dlFiles.testEvents.data[i+1][teamBlock])
             }
             print(time)
@@ -164,7 +164,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
             } else {
                 let beName = EventsData.impoundList()[indexPath.row - ScheduleData.earlyEvents.count]
                 let i = EventsData.completeList.index(of: beName)!
-                let teamBlock = Int(ceil(Float(EventsData.teamNumber()!/10)))
+                let teamBlock = Int(ceil(Float(EventsData.teamNumber()!)/10))
                 let loc = dlFiles.testEvents.data[i+1][5]
                 var time = ""
                 if beName == "Hovercraft" {
@@ -185,7 +185,6 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
             cell.textLabel!.text = (ScheduleData.lateEvents[indexPath.row] as EventLabel).print()
             break
         default:
-            //check first whether it's a build event
             cell.textLabel!.text = (ScheduleData.events[indexPath.row] as EventLabel).print()
         }
         return cell

@@ -19,7 +19,6 @@ class Downloadable {
         self.homerooms.downloadFile(sourceURL: CSVFile.homeroomAddress)
         self.testEvents.downloadFile(sourceURL: CSVFile.testEventAddress)
         self.buildEvents.downloadFile(sourceURL: CSVFile.buildEventAddress)
-
     }
     
     //save and parse
@@ -47,7 +46,6 @@ class Downloadable {
     
     //initialize the files
     init() {
-        //what happens if it's not there to begin with?
         self.load()
         self.beginUpdate()
     }
