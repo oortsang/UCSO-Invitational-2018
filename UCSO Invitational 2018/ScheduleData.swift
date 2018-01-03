@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class EventLabel {
     var name = ""
@@ -22,10 +23,16 @@ class EventLabel {
          (self.name, self.loc, self.time) = (setName, setLoc, setTime)
     }
     //returns a string
-    func print() -> String! {
+    func printString() -> String! {
         return "\(self.time) @ \(self.loc): \(self.name)"
     }
-    
+    //returns the textlabel text as well as the detail text
+    func printCell(cell: UITableViewCell) -> UITableViewCell {
+        let cellCopy = cell
+        cellCopy.textLabel?.text = "\(self.name)"
+        cellCopy.detailTextLabel?.text = "\(self.time) @ \(self.loc)"
+        return cellCopy
+    }
     init(name: String, loc: String, time: String) {
         (self.name, self.loc, self.time) = (name, loc, time)
     }

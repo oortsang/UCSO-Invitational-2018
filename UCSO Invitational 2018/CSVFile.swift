@@ -22,7 +22,6 @@ func getCol(array: [[Any]], col: Int) -> [Any]? {
 
 class CSVFile {
     static let baseFileFolder = "https://raw.githubusercontent.com/oortsang/UCSO-Invitational-2018/master/Updatable%20Files/"
-    //"https://rawgit.com/oortsang/UCSO-Invitational-2018/master/Updatable%20Files/"
     static let buildEventAddress = baseFileFolder + "BuildEvents.csv"
     static let testEventAddress = baseFileFolder + "TestEvents.csv"
     static let homeroomAddress = baseFileFolder + "Homerooms.csv"

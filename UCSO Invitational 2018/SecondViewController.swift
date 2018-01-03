@@ -153,14 +153,15 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     //give labels to the cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print("Getting Knowledge from section \(indexPath.section), I see...")
-        let cell = tableView.dequeueReusableCell(withIdentifier: "schedule", for: indexPath)
+        var cell = tableView.dequeueReusableCell(withIdentifier: "schedule", for: indexPath)
         let section = indexPath.section
         switch section {
         case 0:
             print(indexPath.row)
             /* HANDLE IMPOUND BUILD EVENTS MORE PRETTILY!! */
             if indexPath.row < ScheduleData.earlyEvents.count {
-                cell.textLabel!.text = (ScheduleData.earlyEvents[indexPath.row] as EventLabel).print()
+                //cell.textLabel!.text = (ScheduleData.earlyEvents[indexPath.row] as EventLabel).print()
+                cell = (ScheduleData.earlyEvents[indexPath.row] as EventLabel).printCell(cell: cell)
             } else {
                 let beName = EventsData.impoundList()[indexPath.row - ScheduleData.earlyEvents.count]
                 let i = EventsData.completeList.index(of: beName)!
@@ -178,14 +179,14 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
                 }
                 let buildEvent = EventLabel(name: evName, loc: loc, time: time)
                 
-                cell.textLabel!.text = buildEvent.print()
+                cell  = buildEvent.printCell(cell: cell)
             }
             break
         case 2:
-            cell.textLabel!.text = (ScheduleData.lateEvents[indexPath.row] as EventLabel).print()
+            cell = (ScheduleData.lateEvents[indexPath.row] as EventLabel).printCell(cell: cell)
             break
         default:
-            cell.textLabel!.text = (ScheduleData.events[indexPath.row] as EventLabel).print()
+            cell = (ScheduleData.events[indexPath.row] as EventLabel).printCell(cell: cell)
         }
         return cell
     }
