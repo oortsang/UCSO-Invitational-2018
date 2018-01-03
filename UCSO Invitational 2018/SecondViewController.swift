@@ -43,8 +43,9 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
                 let cell = schedView.cellForRow(at: indexPath)
                 print(indexPath)
                 //modify when cells get prettier!
-                let msg = cell?.textLabel!.text
-                let alert = UIAlertController(title: "Event", message: msg,  preferredStyle: .alert)
+                let title = cell?.textLabel!.text
+                let msg = cell?.detailTextLabel!.text
+                let alert = UIAlertController(title: title, message: msg,  preferredStyle: .alert)
                 alert.addAction(
                     UIAlertAction(title:
                         NSLocalizedString("Ok", comment: "Default action"),
@@ -137,11 +138,6 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            /*if hasHovercraft() {
-                return 1 + ScheduleData.earlyEvents.count
-            } else {
-                return ScheduleData.earlyEvents.count
-            }*/
             return ScheduleData.earlyEvents.count + EventsData.impoundList().count
         case 2:
             return ScheduleData.lateEvents.count
