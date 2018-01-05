@@ -41,10 +41,12 @@ class CSVFile {
     //takes the text info from a CSV and turns it into a 2D array
     //2D array gets dumped into the class
     func parse() {
+        if string == "" {
+            return
+        }
         let rows: [String] = file.components(separatedBy: "\r\n")
-        if rows.count > 0 {
+        if rows.count > 1 { //want to make sure it's not just an empty string
             var data: [[String]] = []
-            //for (i, row) in rows.enumerated() {
             for row in rows {
                 let content = row.components(separatedBy: ",")
                 if content != [""] {
@@ -53,7 +55,6 @@ class CSVFile {
             }
             self.data = data
         } //otherwise, leave it the same
-        //print(self.data)
     }
     
     //appDelegate is defined elsewhere
@@ -63,12 +64,18 @@ class CSVFile {
     //storing these csv guys
     //tell it what name to save under
     func save(name: String) {
+        //don't want to overwrite existing things if there is nothing of use in the file at the moment
+        if (self.file == "") {
+            print("File not saved...")
+            return
+        }
+        
         self.clear(fileName: name) //clean up any mess
         let newFile = NSEntityDescription.insertNewObject(forEntityName: "Files", into: CSVFile.fileContext)
-        newFile.setValue (name, forKey: "fileName")
-        newFile.setValue(self.file, forKey: "data")
+        newFile.setValue (name, forKey: "fileName") //make an entry title
+        newFile.setValue(self.file, forKey: "data") //put the string in it
         do {
-            print("HOORAY! self.file:  \(self.file)")
+            //print("HOORAY! self.file:  \(self.file)")
             try CSVFile.fileContext.save()
         }
         catch {
@@ -132,7 +139,7 @@ class CSVFile {
         }
     }
     
-    //downloads a file from the source URL and deposits into the class it's in
+    //downloads a file from the source URL and deposits into the object it's in
     func downloadFile(sourceURL: String) {
         let url = URL(string: sourceURL)
         let task = URLSession.shared.downloadTask(with: url!) { loc, resp, error in
@@ -145,7 +152,12 @@ class CSVFile {
                     return
             }
             guard let data = try? Data(contentsOf: loc!) , error == nil else {return}
-            self.file = (String(data: data, encoding: .utf8))!
+            //self.file = (String(data: data, encoding: .utf8))!
+	    let tmpfile = (String(data: data, encoding: .utf8))!
+	    if tmpfile == "" {
+                return
+            }
+	    self.file = tmpfile
             print("This is such a cool file! \(self.file)")
             self.parse()
             self.sendDownloadNotification()
