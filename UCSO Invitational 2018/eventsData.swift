@@ -49,12 +49,9 @@ func loadEvents() -> Void {
         let results = try context.fetch(request)
         if results.count > 0 {
             var tmpRes = [String]()
-	    var tmpEv: [EventLabel] = []
             for result in results {
                 if let eventName = (result as AnyObject).value(forKey:"event") as? String {
                     tmpRes.append(eventName)
-		    //check that the dlFile guy is loaded (but don't have access)
-		    //then if it's there, make an EventLabel equivalent list w/ tmpEv
                 }
             }
             EventsData.list = tmpRes
