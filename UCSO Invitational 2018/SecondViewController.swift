@@ -28,7 +28,9 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         loadSchoolName()
         loadEvents()
-	
+        updateEvents()
+        //print("Schedule data is not empty here: \(ScheduleData.events.count)")
+        
         super.viewDidLoad()
         
         updateSchoolAndTable()
@@ -135,17 +137,19 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
                 //lookup from build event file
                 let teamNumber = EventsData.teamNumber()!
                 let j = 1+EventsData.selfScheduled.index(of: elm)!
-                print("Trying to access: team number \(teamNumber) for the \(j)th event")
+                //print("Trying to access: team number \(teamNumber) for the \(j)th event")
                 time = cleanTime(time: dlFiles.buildEvents.data[j][teamNumber])
             } else {
                 let teamBlock =  Int(ceil(Float(EventsData.teamNumber()!)/10)) //1-10,11-20,21-30,31-40
                 time = cleanTime(time: dlFiles.testEvents.data[i+1][teamBlock])
             }
-            print(time)
+            //print(time)
             let tmp = EventLabel(name: elm, loc: loc, time: time)
             elList.append(tmp)
         }
         ScheduleData.events = orderEvents(eventList: elList)
+        
+        //print("At the end of updateEvents, there are \(ScheduleData.events.count) events")
     }
     
     //MARK: mostly boring table management stuff below this point
@@ -167,13 +171,12 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     
     //give labels to the cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("Getting Knowledge from section \(indexPath.section), I see...")
+        //print("Getting Knowledge from section \(indexPath.section), I see...")
         var cell = tableView.dequeueReusableCell(withIdentifier: "schedule", for: indexPath)
         let section = indexPath.section
         switch section {
         case 0:
-            print(indexPath.row)
-            /* HANDLE IMPOUND BUILD EVENTS MORE PRETTILY!! */
+            //print(indexPath.row)
             if indexPath.row < ScheduleData.earlyEvents.count {
                 //cell.textLabel!.text = (ScheduleData.earlyEvents[indexPath.row] as EventLabel).print()
                 cell = (ScheduleData.earlyEvents[indexPath.row] as EventLabel).printCell(cell: cell)

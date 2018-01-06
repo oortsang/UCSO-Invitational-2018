@@ -89,12 +89,11 @@ class CSVFile {
         CSVFile.fileRequest.predicate = NSPredicate(format: "fileName = %@", fileName)
         do {
             let results = try CSVFile.fileContext.fetch(CSVFile.fileRequest)
-            print("I have this many results: ",results.count)
+            //print("I have this many results: ",results.count)
             if results.count > 0 {
                 let result = results.first
                 if let loadedData = (result as! NSManagedObject).value(forKey:"data") {
                     self.file = loadedData as! String
-                    print("Loaded file: \(self.file)")
                     self.parse()
                 }
             }
@@ -103,6 +102,8 @@ class CSVFile {
             print("Something went wrong with the request...")
         }
         CSVFile.fileRequest.predicate = tmp
+        
+        
     }
     //deletes every result when searching <name> in the fileRequest
     func clear(fileName: String) {
@@ -113,7 +114,7 @@ class CSVFile {
                 
                 for object in results as [NSManagedObject]! {
                     //if object.value(forKey: "fileName") as! String == fileName {
-                    if (object.value(forKey: "fileName") as? String) != nil {
+                    if (object.value(forKey: "fileName") as? String) == fileName {
                         CSVFile.fileContext.delete(object)
                     }
                 }
