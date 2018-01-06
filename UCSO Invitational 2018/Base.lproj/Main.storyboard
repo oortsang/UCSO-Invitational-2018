@@ -210,6 +210,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Schedule" image="second" id="cPa-gy-q4n"/>
                     <navigationItem key="navigationItem" title="Schedule" id="ebW-bo-zYm">
+                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="Fh8-z4-6xb">
+                            <connections>
+                                <action selector="refreshData:" destination="8rJ-Kc-sve" id="qNw-XK-mJ7"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem title="Item" image="big_gear" id="LnQ-Mc-9j1">
                                 <connections>

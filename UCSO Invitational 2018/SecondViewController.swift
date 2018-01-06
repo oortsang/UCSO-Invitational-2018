@@ -15,8 +15,26 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var homeroomLocation: UITextField!
     @IBOutlet weak var schedView: UITableView!
     
+
     //var homeroomFile = CSVFile()
     var dlFiles = Downloadable()
+    
+    // Get the refresh button to refresh
+    @IBAction func refreshData(_ sender: UIBarButtonItem) {
+        dlFiles.beginUpdate()
+
+        // todo make this less ugly
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
+            // Put your code which should be executed with a delay here
+            
+            
+            // update table view
+            NotificationCenter.default.post(name: .reloadSchoolName, object:nil)
+        })
+        
+
+    }
     
     override func viewDidLoad() {
         loadSchoolName()
@@ -57,7 +75,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
     
-    //on download finish
+    //on download finish (note: does not update view)
     @objc func onDownloadSummoned () {
         dlFiles.finishUpdate()
     }
