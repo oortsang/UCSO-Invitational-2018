@@ -93,7 +93,7 @@ class ScheduleData {
         return "(location of event)" //ALSO CHANGE THIS
     }
     static func updateHomerooms(dataFile: CSVFile) {
-        print(EventsData.currentSchool, "!!!")
+        guard dataFile.file != "" else {return} //don't want the file to be empty!
         ScheduleData.homeroomList = getCol(array: dataFile.data, col: 1) as! [String]
         ScheduleData.homeroom = ScheduleData.homeroomList[EventsData.teamNumber()-1]
         dataFile.save(name: "homerooms")

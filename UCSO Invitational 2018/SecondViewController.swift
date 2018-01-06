@@ -104,10 +104,10 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     //put the events back into ScheduleData.events so that it can be nicely formatted
     func updateEvents() {
         var elList: [EventLabel] = []
-        print(dlFiles.testEvents.data)
+        if dlFiles.testEvents.file == "" {return}
         for elm in EventsData.list {
             let i = EventsData.completeList.index(of: elm)!
-            let loc = dlFiles.testEvents.data[i+1][5]
+            guard let loc = dlFiles.testEvents.data[i+1][5] else {return}
 
             var time = "?"
             
@@ -165,7 +165,9 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
                 let loc = dlFiles.testEvents.data[i+1][5]
                 var time = ""
                 if beName == "Hovercraft" {
-                    time = cleanTime(time: dlFiles.testEvents.data[i+1][teamBlock], duration: 30)!
+                    guard time = cleanTime(time: dlFiles.testEvents.data[i+1][teamBlock], duration: 30)! else {
+		            time = "8:00 - 8:30 AM"
+			}
                 } else {
                     time = "8:00 - 8:30 AM"
                 }

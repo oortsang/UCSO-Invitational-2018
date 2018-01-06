@@ -41,7 +41,7 @@ class CSVFile {
     //takes the text info from a CSV and turns it into a 2D array
     //2D array gets dumped into the class
     func parse() {
-        if string == "" {
+        if self.file == "" {
             return
         }
         let rows: [String] = file.components(separatedBy: "\r\n")
