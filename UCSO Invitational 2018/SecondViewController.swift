@@ -21,6 +21,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         loadSchoolName()
         loadEvents()
+	
         super.viewDidLoad()
         
         updateSchoolAndTable()
