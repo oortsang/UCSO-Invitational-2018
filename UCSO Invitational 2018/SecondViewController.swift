@@ -107,7 +107,15 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         if dlFiles.testEvents.file == "" {return}
         for elm in EventsData.list {
             let i = EventsData.completeList.index(of: elm)!
-            guard let loc = dlFiles.testEvents.data[i+1][5] else {return}
+            
+            // make sure no index-out-of-bounds error for `loc`
+            if dlFiles.testEvents.data.count <= i+1 {
+                return
+            } else if dlFiles.testEvents.data[i+1].count <= 5 {
+                return
+            }
+            let loc = dlFiles.testEvents.data[i+1][5]
+
 
             var time = "?"
             
@@ -162,12 +170,17 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
                 let beName = EventsData.impoundList()[indexPath.row - ScheduleData.earlyEvents.count]
                 let i = EventsData.completeList.index(of: beName)!
                 let teamBlock = Int(ceil(Float(EventsData.teamNumber()!)/10))
-                let loc = dlFiles.testEvents.data[i+1][5]
+                var loc = ""
                 var time = ""
                 if beName == "Hovercraft" {
-                    guard time = cleanTime(time: dlFiles.testEvents.data[i+1][teamBlock], duration: 30)! else {
-		            time = "8:00 - 8:30 AM"
-			}
+                    // make sure no index-out-of-bounds error for `cleanTime`
+                    if dlFiles.testEvents.data.count <= i+1 || dlFiles.testEvents.data[i+1].count <= teamBlock {
+                        time = "8:00 - 8:30 AM"
+                    } else {
+                        time = cleanTime(time: dlFiles.testEvents.data[i+1][teamBlock],
+                                         duration: 30)!
+                        loc = dlFiles.testEvents.data[i+1][5]
+                    }
                 } else {
                     time = "8:00 - 8:30 AM"
                 }
@@ -184,7 +197,18 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
             cell = (ScheduleData.lateEvents[indexPath.row] as EventLabel).printCell(cell: cell)
             break
         default:
-            cell = (ScheduleData.events[indexPath.row] as EventLabel).printCell(cell: cell)
+            // check that ScheduleData.events is not empty
+            if ScheduleData.events.count == 0 {
+                cell.textLabel!.text = "???"
+                cell.detailTextLabel!.text = "pls connect to the internet :|"
+            }
+            // check that we actually have a testEvents file
+            else if dlFiles.testEvents.file == "" || dlFiles.buildEvents.file == "" {
+                cell.textLabel!.text = (ScheduleData.events[indexPath.row] as EventLabel).name
+                cell.detailTextLabel!.text = "Entry not found: Please connect to internet"
+            } else {
+                cell = (ScheduleData.events[indexPath.row] as EventLabel).printCell(cell: cell)
+            }
         }
         return cell
     }
