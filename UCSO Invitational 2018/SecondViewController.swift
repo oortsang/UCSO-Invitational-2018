@@ -22,18 +22,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     // Get the refresh button to refresh
     @IBAction func refreshData(_ sender: UIBarButtonItem) {
         dlFiles.beginUpdate()
-
-        // todo make this less ugly
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
-            // Put your code which should be executed with a delay here
-            
-            
-            // update table view
-            NotificationCenter.default.post(name: .reloadSchoolName, object:nil)
-        })
-        
-
+        NotificationCenter.default.post(name: .reloadSchoolName, object:nil)
     }
     
     override func viewDidLoad() {
@@ -78,27 +67,30 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     //on download finish (note: does not update view)
     @objc func onDownloadSummoned () {
         dlFiles.finishUpdate()
+        updateSchoolAndTable()
     }
     
     //update the text to reflect current team set
     @objc func updateSchoolAndTable() {
-        //update team info
-        let sName = EventsData.currentSchool
-        let sNumber = EventsData.teamNumber()!
-        if dlFiles.homerooms.data.count > 1 {
-            ScheduleData.updateHomerooms(dataFile: dlFiles.homerooms)
+        DispatchQueue.main.async() {
+            //update team info
+            let sName = EventsData.currentSchool
+            let sNumber = EventsData.teamNumber()!
+            if self.dlFiles.homerooms.data.count > 1 {
+                ScheduleData.updateHomerooms(dataFile: self.dlFiles.homerooms)
+            }
+            self.schoolTitle.text = "Viewing as: (\(sNumber)) \(sName)"
+            self.homeroomLocation.text = "Homeroom: \(ScheduleData.homeroom)"
+            saveSchoolName(teamName: sName)
+            
+            //update the table itself
+            self.updateEvents()
+            
+            //schedView.reloadSections(IndexSet(integer: 1), with: .none)
+            self.schedView.reloadSections(IndexSet([0,1,2]) , with: .none)
+            //schedView.reloadData()
+            self.schedView.reloadInputViews()
         }
-        schoolTitle.text = "Viewing as: (\(sNumber)) \(sName)"
-        homeroomLocation.text = "Homeroom: \(ScheduleData.homeroom)"
-        saveSchoolName(teamName: sName)
-        
-        //update the table itself
-        self.updateEvents()
-        
-        //schedView.reloadSections(IndexSet(integer: 1), with: .none)
-        schedView.reloadSections(IndexSet([0,1,2]) , with: .none)
-        //schedView.reloadData()
-        schedView.reloadInputViews()
     }
     
     //helper function just for string processing

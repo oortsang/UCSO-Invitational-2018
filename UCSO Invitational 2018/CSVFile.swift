@@ -153,14 +153,14 @@ class CSVFile {
             }
             guard let data = try? Data(contentsOf: loc!) , error == nil else {return}
             //self.file = (String(data: data, encoding: .utf8))!
-	    let tmpfile = (String(data: data, encoding: .utf8))!
-	    if tmpfile == "" {
-                return
-            }
-	    self.file = tmpfile
-            print("This is such a cool file! \(self.file)")
-            self.parse()
-            self.sendDownloadNotification()
+            let tmpfile = (String(data: data, encoding: .utf8))!
+            if tmpfile == "" {
+                    return
+                }
+            self.file = tmpfile
+                print("This is such a cool file! \(self.file)")
+                self.parse()
+                self.sendDownloadNotification()
         }
         task.resume()
     }
