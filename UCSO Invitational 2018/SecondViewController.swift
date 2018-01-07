@@ -24,7 +24,14 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         dlFiles.beginUpdate()
         NotificationCenter.default.post(name: .reloadSchoolName, object:nil)
     }
-    
+
+    //called every time the view is brought to view
+    override func viewDidAppear() {
+        super.viewDidAppear()
+	dlFiles.beginupdate() // call the update now
+    }
+
+    //called just at the beginning of the app
     override func viewDidLoad() {
         loadSchoolName()
         loadEvents()

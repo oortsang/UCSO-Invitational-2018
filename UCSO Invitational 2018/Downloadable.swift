@@ -12,19 +12,26 @@ class Downloadable {
     let homerooms = CSVFile()
     let testEvents = CSVFile()
     let buildEvents = CSVFile()
-    //let funEvents = CSVFile()
+    var downloadInProgress = false
     
     //start the downloads
     func beginUpdate() {
+    	//don't start if a download is already in progress
+    	if downloadInProgress{
+	    print("Download already in progress!")
+	    return
+	}
         self.homerooms.downloadFile(sourceURL: CSVFile.homeroomAddress)
         self.testEvents.downloadFile(sourceURL: CSVFile.testEventAddress)
         self.buildEvents.downloadFile(sourceURL: CSVFile.buildEventAddress)
+	downloadInProgress = true
     }
     
     //save and parse
     func finishUpdate() {
         self.save()
         self.parse()
+	downloadInProgress = false
     }
     
     func save() {
