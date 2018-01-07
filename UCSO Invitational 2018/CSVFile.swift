@@ -74,13 +74,17 @@ class CSVFile {
         let newFile = NSEntityDescription.insertNewObject(forEntityName: "Files", into: CSVFile.fileContext)
         newFile.setValue (name, forKey: "fileName") //make an entry title
         newFile.setValue(self.file, forKey: "data") //put the string in it
+
+        //print("HOORAY! self.file:  \(self.file)")
+
         do {
-            //print("HOORAY! self.file:  \(self.file)")
             try CSVFile.fileContext.save()
-        }
-        catch {
+        }  catch {
             print("Something went wrong with saving a file")
         }
+
+
+
     }
     //load from disk
     func load(fileName: String) {
@@ -131,7 +135,7 @@ class CSVFile {
             if results!.count > 0 {
                 //delete all results
                 for object in results! {
-                    print("Removed \(object)")
+                    //print("Removed \(object)")
                     CSVFile.fileContext.delete(object)
                 }
             }
@@ -156,12 +160,12 @@ class CSVFile {
             //self.file = (String(data: data, encoding: .utf8))!
             let tmpfile = (String(data: data, encoding: .utf8))!
             if tmpfile == "" {
-                    return
-                }
+                return
+            }
             self.file = tmpfile
-                print("This is such a cool file! \(self.file)")
-                self.parse()
-                self.sendDownloadNotification()
+            print("This is such a cool file! \(self.file)")
+            self.parse()
+            self.sendDownloadNotification()
         }
         task.resume()
     }

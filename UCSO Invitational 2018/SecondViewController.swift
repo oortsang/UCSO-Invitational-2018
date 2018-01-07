@@ -26,9 +26,9 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     }
 
     //called every time the view is brought to view
-    override func viewDidAppear() {
-        super.viewDidAppear()
-	dlFiles.beginupdate() // call the update now
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        dlFiles.beginUpdate() // call the update now
     }
 
     //called just at the beginning of the app
@@ -40,7 +40,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         
         super.viewDidLoad()
         
-        updateSchoolAndTable()
+        //updateSchoolAndTable()
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateSchoolAndTable), name: .reloadSchoolName, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onDownloadSummoned), name: .downloadFinished, object: nil)
@@ -76,8 +76,10 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     
     //on download finish (note: does not update view)
     @objc func onDownloadSummoned () {
+        //print("Download summoned")
         dlFiles.finishUpdate()
         updateSchoolAndTable()
+        //print("Finished onDownloadSummoned")
     }
     
     //update the text to reflect current team set
@@ -193,7 +195,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
                 let teamBlock = Int(ceil(Float(EventsData.teamNumber()!)/10))
                 var loc = ""
                 var time = ""
-                if beName == "Hovercraft" {
+                //if beName == "Hovercraft" {
                     // make sure no index-out-of-bounds error for `cleanTime`
                     if dlFiles.testEvents.data.count <= i+1 || dlFiles.testEvents.data[i+1].count <= teamBlock {
                         time = "8:00 - 8:30 AM"
@@ -202,9 +204,9 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
                                          duration: 30)!
                         loc = dlFiles.testEvents.data[i+1][5]
                     }
-                } else {
-                    time = "8:00 - 8:30 AM"
-                }
+//                } else {
+//                    time = "8:00 - 8:30 AM"
+//                }
                 var evName = "Impound for " + beName
                 if beName == "Hovercraft" {
                     evName = "Written Test + " + evName

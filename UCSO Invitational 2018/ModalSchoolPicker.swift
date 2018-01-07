@@ -59,6 +59,7 @@ func saveSchoolName(teamName: String) -> Void {
     newTeam.setValue (teamName, forKey: "name")
     do {
         try teamContext.save()
+        //print("teamContext saved properly")
     }
     catch {
         print("Something went wrong with adding a team")
@@ -72,7 +73,7 @@ func clearSchools() -> Void {
         if results!.count > 0 {
             //delete all results
             for object in results! {
-                print("Removed \(object)")
+                //print("Removed \(object)")
                 teamContext.delete(object)
             }
         }

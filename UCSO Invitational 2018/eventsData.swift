@@ -118,7 +118,7 @@ func clearEvents() -> Void {
         if results!.count > 0 {
             //delete all results
             for object in results! {
-                print("Removed \(object)")
+                //print("Removed \(object)")
                 context.delete(object)
             }
         }
