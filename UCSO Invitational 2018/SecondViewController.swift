@@ -38,8 +38,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         updateEvents()
         
         super.viewDidLoad()
-        
-        updateSchoolAndTable()
+	updateSchoolAndTable()
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateSchoolAndTable), name: .reloadSchoolName, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onDownloadSummoned), name: .downloadFinished, object: nil)
