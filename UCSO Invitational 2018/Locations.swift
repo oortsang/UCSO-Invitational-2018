@@ -24,7 +24,8 @@ let locList: [(String, String, Double, Double)]
         ("Kent", "Kent Laboratory", 41.790188, -87.600143),
         ("ERC", "Eckhardt Research Center", 41.791906,-87.601552),
         ("Cobb", "Cobb Lecture Hall", 41.788996, -87.600854),
-        ("Reg", "The Joseph Regenstein Library", 41.792279, -87.599954)
+        ("Reg", "The Joseph Regenstein Library", 41.792279, -87.599954),
+        ("Stuart", "Stuart Hall", 41.788608, -87.598713)
     ]
 
 struct MyList {

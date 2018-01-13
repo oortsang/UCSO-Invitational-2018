@@ -36,11 +36,10 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         loadSchoolName()
         loadEvents()
         updateEvents()
-        //print("Schedule data is not empty here: \(ScheduleData.events.count)")
         
         super.viewDidLoad()
         
-        //updateSchoolAndTable()
+        updateSchoolAndTable()
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateSchoolAndTable), name: .reloadSchoolName, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onDownloadSummoned), name: .downloadFinished, object: nil)
